@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antarctica User Manual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="index.html">ANTARCTICA</a>
+    <a href="index.html">Overview</a>
+    <a href="manual.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#quick-start">Quick Start</a></li>
+        <li><a href="#concepts">Basic Concepts</a>
+          <ol>
+            <li><a href="#auto-manual">Auto & Manual</a></li>
+            <li><a href="#seed">The Seed</a></li>
+            <li><a href="#signal-flow">Signal Flow</a></li>
+          </ol>
+        </li>
+        <li><a href="#window">The Window</a></li>
+        <li><a href="#aurora">Aurora</a></li>
+        <li><a href="#conductor">Conductor</a>
+          <ol>
+            <li><a href="#axes">The Three Axes</a></li>
+            <li><a href="#auto-mode">Auto Mode</a></li>
+            <li><a href="#hold">Hold</a></li>
+            <li><a href="#track-count">Tracks</a></li>
+          </ol>
+        </li>
+        <li><a href="#tuning">Tuning</a></li>
+        <li><a href="#clock">Clock</a></li>
+        <li><a href="#fm-patches">FM Patches</a>
+          <ol>
+            <li><a href="#generated-patches">Generated Patches</a></li>
+          </ol>
+        </li>
+        <li><a href="#preset-output">Preset &amp; Output</a></li>
+        <li><a href="#effects">Effects</a>
+          <ol>
+            <li><a href="#reverb">Reverb</a></li>
+            <li><a href="#delay">Delay</a></li>
+          </ol>
+        </li>
+        <li><a href="#tracks">Tracks</a>
+          <ol>
+            <li><a href="#decisions">How a Track Decides</a></li>
+            <li><a href="#strips">Track Strips</a></li>
+            <li><a href="#detail">Detail Panel</a></li>
+            <li><a href="#source">Source</a></li>
+            <li><a href="#filter">Filter &amp; LFO</a></li>
+            <li><a href="#sequence">Sequence</a></li>
+          </ol>
+        </li>
+        <li><a href="#presets">Presets</a></li>
+        <li><a href="#record">Record</a></li>
+        <li><a href="#sleep-timer">Sleep Timer</a></li>
+        <li><a href="#export">Export Audio</a></li>
+        <li><a href="#daw">Use in a DAW</a></li>
+        <li><a href="#shortcuts">Shortcuts</a></li>
+        <li><a href="#tips">Tips</a></li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Antarctica User Manual</h1>
+      <p>Antarctica is available as both a standalone app and an audio unit plugin (AU) for use in a DAW. The AU is bundled inside the application so there is no installer to run.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="introduction">Introduction</h2>
+      <p>Antarctica is a generative audio instrument that plays by itself and makes drones, slow melodies, pulses, and strange noises. You provide as much or as little input as you want.</p>
+      <p>Antarctica has three main components:</p>
+      <ul>
+        <li><strong>The conductor.</strong> It sets the mood for all the tracks.</li>
+        <li><strong>Eight audio tracks.</strong> Each track makes its own sound, and, guided by the conductor’s mood, decides what to play.</li>
+        <li><strong>Two send effects.</strong> Reverb and delay units are optimized for maximum spaciness.</li>
+      </ul>
+      <p>You can let Antarctica play with no input forever, or take control of any part of it, at any time.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="quick-start">Quick start</h2>
+      <ol>
+        <li>Open Antarctica.</li>
+        <li>Click <strong>Play</strong> in the toolbar, or push the <kbd>Space</kbd> bar.</li>
+        <li>Listen. The tracks fade in and start to make decisions.</li>
+        <li>To hear a different mood, open the preset menu in <strong>Preset &amp; Output</strong> and select a factory preset.</li>
+        <li>To hear new random choices with the same settings, click <strong>New Seed</strong>.</li>
+        <li>To set the mood yourself, turn off <strong>Auto</strong> in the Conductor panel then adjust the three sliders.</li>
+      </ol>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="concepts">Basic concepts</h2>
+
+      <h3 id="auto-manual">Auto and Manual</h3>
+      <p>Each track has two types of parameters:</p>
+      <ul>
+        <li><strong>Mixer parameters</strong>:
+        <ul>
+        <li>Level</li>
+        <li>Pan</li>
+        <li>Effects send levels</li>
+        <li>Mute and Solo</li>
+        </ul>You always set these. The track does not change them.</li>
+        <li><strong>Generative parameters</strong>:
+        <ul><li>Generator type</li>
+        <li>Timbral controls</li>
+        <li>Filter + filter LFO</li>
+        <li>Sequence parameters</li></ul>
+        All parameters can be <strong>Auto</strong> or <strong>Manual</strong>.</li>
+      </ul>
+      <p>In <strong>Auto</strong>, the track chooses the value. The control shows the value currently playing. In <strong>Manual</strong>, the track holds your value, and you can edit it.</p>
+      <p>When you change a parameter from Auto to Manual, Antarctica first copies the current value into the control to prevent the sound from jumping. When you change the parameter back to Auto, the track continues from your value but can make a new choice at its next decision point.</p>
+      <div class="note"><strong>Note</strong>The Auto/Manual state of each parameter is saved in presets and in your DAW project. It is not a parameter that a DAW can automate.</div>
+
+      <h3 id="seed">The seed</h3>
+      <p>All the random choices in Antarctica come from one number—the <strong>seed</strong>. Without user input, the same seed settings always create the same music.</p> <p>You can use this to:</p>
+      <ul>
+        <li>Return to a result you like and write down the seed.</li>
+        <li>Share a result with a different person, such as giving them the seed and preset.</li>
+        <li>Export the same music you heard. See <a href="#export">Export audio</a>.</li>
+      </ul>
+      <p>The conductor, tracks, and effects use a different random stream each. Changing one track does not change the choices of the other tracks.</p>
+
+      <h3 id="signal-flow">Signal flow</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 1180 272" role="img" aria-labelledby="flow-title"><title id="flow-title">Signal flow: each track goes Generator, Filter and LFO, Envelope, Level, Pan. Then it goes to the main mix and to the reverb and delay sends. The delay can feed the reverb. Both effects return to the main mix, then Master Gain, then Output.</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect class="group" x="8" y="24" width="552" height="80" rx="12"/><text text-anchor="start" class="group-label" x="20" y="16">Each track (×8)</text><g class="edges"><path d="M120 64H145"/><path d="M265 64H290"/><path d="M390 64H415"/><path d="M479 64H496"/><path d="M548 64H820"/><path d="M590 64V154H690"/><path d="M590 154V244H690"/><path d="M740 224V174"/><path d="M790 154H850V84"/><path d="M790 244H890V84"/><path d="M920 64H950"/><path d="M1066 64H1090"/></g><g class="node"><rect x="20" y="44" width="100" height="40" rx="8"/><text x="70.0" y="69">Generator</text></g><g class="node"><rect x="145" y="44" width="120" height="40" rx="8"/><text x="205.0" y="69">Filter · LFO</text></g><g class="node"><rect x="290" y="44" width="100" height="40" rx="8"/><text x="340.0" y="69">Envelope</text></g><g class="node"><rect x="415" y="44" width="64" height="40" rx="8"/><text x="447.0" y="69">Level</text></g><g class="node"><rect x="496" y="44" width="52" height="40" rx="8"/><text x="522.0" y="69">Pan</text></g><g class="node fx"><rect x="690" y="134" width="100" height="40" rx="8"/><text x="740.0" y="159">Reverb</text></g><g class="node fx"><rect x="690" y="224" width="100" height="40" rx="8"/><text x="740.0" y="249">Delay</text></g><g class="node"><rect x="820" y="44" width="100" height="40" rx="8"/><text x="870.0" y="69">Main mix</text></g><g class="node"><rect x="950" y="44" width="116" height="40" rx="8"/><text x="1008.0" y="69">Master Gain</text></g><g class="node out"><rect x="1090" y="44" width="84" height="40" rx="8"/><text x="1132.0" y="69">Output</text></g><text text-anchor="start" class="edge" x="604" y="146">Rev send</text><text text-anchor="start" class="edge" x="604" y="236">Dly send</text><text text-anchor="start" class="edge" x="748" y="203">→ Reverb</text><text text-anchor="start" class="edge" x="798" y="146">return</text><text text-anchor="start" class="edge" x="798" y="236">return</text></svg>
+      </figure>
+      <p>The sends occur after Level and Pan. Mute and Solo also stop the sends.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="window">The window</h2>
+      <figure class="shot" data-file="images/main-window-labeled.png" data-shot="The full window. Add numbered labels for: 1 Aurora, 2 Conductor row, 3 Effects row, 4 Track strips, 5 Detail panel, 6 Toolbar.">
+        <img src="images/main-window-labeled.png" alt="The Antarctica window with labels" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>The window (from top to bottom):</p>
+      <ol>
+        <li><strong>Aurora</strong>: the visualization. Display or hide it.</li>
+        <li><strong>Conductor row</strong>: Conductor, Tuning, Clock, FM Patches, and Preset &amp; Output.</li>
+        <li><strong>Effects row</strong>: Reverb and Delay.</li>
+        <li><strong>Track strips</strong>: one mixer strip for each track.</li>
+        <li><strong>Detail panel</strong>: the generative parameters of the selected track.</li>
+      </ol>
+      <p>In the standalone app, the toolbar includes <strong>Play/Stop</strong>, <strong>Record</strong>, <strong>Sleep Timer</strong>, and <strong>Export Audio</strong>.</p>
+      <p>Hover the pointer over a control to see help text.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="aurora">Aurora</h2>
+      <figure class="shot" data-file="images/aurora.png" data-shot="The Aurora band while many tracks play, with a mix of generator colors.">
+        <img src="images/aurora.png" alt="The Aurora visualization" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>Aurora gets its name from <a href="https://www.antarctica.gov.au/news/explore-antarctica/auroras/">aurora australis</a>, the southern lights over Antarctica.</p>
+      <p>Aurora displays the state of the music as undulating lines of light:</p>
+      <ul>
+        <li>Horizontal ribbons under vertical curtains of light represent the track.  Height and brightness show the track level.</li>
+        <li>The rays' details display the filter cutoff.</li>
+          <li>The shimmer and sway reveal LFO and chaos.</li>
+        <li>The curtain color shows the track generator (see table below).</li>
+        <li>A pulse moves through the curtain when the track plays a step.</li>
+        <li>The conductor mood changes the movement, with dissonant moods shifting the colors toward violet.</li>
+      </ul>
+      <table>
+        <tr><th>Color</th><th>Generator</th></tr>
+        <tr><td><span class="swatch" style="background: var(--frost)"></span>Frost</td><td>Noise</td></tr>
+        <tr><td><span class="swatch" style="background: var(--aurora)"></span>Green</td><td>Analog</td></tr>
+        <tr><td><span class="swatch" style="background: var(--cyan)"></span>Cyan</td><td>Wavetable</td></tr>
+        <tr><td><span class="swatch" style="background: var(--violet)"></span>Violet</td><td>FM</td></tr>
+      </table>
+      <p>The track strips and detail panel use the same colors.</p>
+      <p>To hide Aurora, click the arrow at its top-right corner. Click the arrow again to reveal it.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="conductor">Conductor</h2>
+      <figure class="shot" data-file="images/conductor.png" data-shot="The Conductor panel with Auto on (the axes show bars, not sliders). The Hold button is in the header.">
+        <img src="images/conductor.png" width="400" alt="The Conductor panel" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>The conductor sets the overall mood of the composition, but doesn't make any sound on its own.
+      It chooses values for each of its three axes, then the tracks use these values to guide their own decisions.
+      The conductor can also adjust the effects (see <a href="#reverb">Motion</a>) and,
+      if you let it, select the tuning.</p>
+      <h3 id="axes">The three axes</h3>
+      <p>The values of the three conductor sliders impact the system as follows:
+      <table>
+        <tr><th>Axis</th><th>Low end</th><th>High end</th></tr>
+        <tr><td>Order ↔ Chaos</td><td>Tracks change infrequently. Patterns repeat. LFOs are slow. Shape sequences (Up, Down) are more frequent.</td><td>Tracks change frequently and changes are more dramatic. Sequences are random or mutate. LFOs are faster and deeper. Resonance and pitch range increase.</td></tr>
+        <tr><td>Sparse ↔ Busy</td><td>Fewer tracks play. More drones and swells. Slow step divisions. Fewer notes in each pattern.</td><td>More tracks play. More sequences. Fast step divisions. More notes in each pattern. Brighter filters.</td></tr>
+        <tr><td>Dissonant ↔ Melodic</td><td>More Noise tracks. Inharmonic timbres: inharmonic oscillator ratios and wavetable banks, more ring modulation, warp, and feedback. See <a href="#mood-timbre">How the mood shapes the sound</a>. More wrong notes and more detune. Ratio sets with high prime limits.</td><td>Consonant timbres. Scale notes and simple ratios. Less detune. More notes on the root.</td></tr>
+      </table>
+      <div class="note"><strong>Melodic is never perfect.</strong>Even at the melodic end, every note has a small random detune and a slow pitch drift, and some notes are wrong on purpose. The melodies are slightly unstable.</div>
+
+      <h3 id="auto-mode">Auto mode</h3>
+      <p>Use the <b>Auto</b> switch at the top of the Conductor panel to decide who’s in control.</p>
+      <ul>
+        <li><strong>Auto on.</strong> The conductor moves the axes by itself. The axes show bars, not sliders. Each axis wanders slowly. At random times (from 30 seconds to 3 minutes) the conductor selects a new target mood, and the axes glide to it over some minutes. Sometimes a target is at an extreme end of an axis. This gives slow drift and also clear changes of section.</li>
+        <li><strong>Auto off.</strong> The axes are sliders. The conductor goes to your values in approximately 0.3 seconds. When you turn Auto off, the sliders start at the values that play now, so the sound does not jump.</li>
+      </ul>
+      <p><strong>Auto Speed</strong> (0.25× to 4×) sets how fast the conductor moves in Auto mode. At 0.5×, the moods last twice as long. This control has no effect when Auto is off.</p>
+      <div class="tip"><strong>Tip</strong>In a factory preset with Auto on, the axis values are only the start of the mood. The mood does not stay there.</div>
+
+      <h3 id="hold">Hold</h3>
+      <p>When you like what you hear and want to keep it going,
+       click the <strong>Hold</strong> button at the top of the Conductor panel. The button becomes amber.</p>
+      <p>While <b>Hold</b> is engaged:</p>
+      <ul>
+        <li>The tracks make no decisions. Each track keeps its sound, pattern, and active or resting state. The track's decision timer stops and becomes amber.
+        <li>The conductor stops changing values. Anything affected by the conductor, such as tuning, stops as well.</li>
+        <li>The music continues to play. Random and Mutating sequences continue to make new notes and to mutate. Drones, LFOs, and pitch drift continue to move.</li>
+        <li>You can edit the tracks, mixer, and effects as usual.</li>
+      </ul>
+      <p>Click <strong>Hold</strong> again to release it. The conductor and decision timers continue from where they stopped.</p>
+      <div class="note"><strong>Note</strong>Hold is saved in presets and in your DAW project, and a DAW can automate it. An <a href="#export">export</a> uses the Hold setting from the start of the seed. Thus, an export with Hold on keeps the first choices of the seed for all of its length.</div>
+
+      <h3 id="track-count">Tracks</h3>
+      <p>The <strong>Tracks</strong> menu (1 to 8) sets how many tracks can play. For example, 4 means that tracks 1–4 play and tracks 5–8 are silent.</p>
+      <ul>
+        <li>Disabled tracks do not count for Solo.</li>
+        <li>Disabled tracks continue to run silently. When you turn a track on again, it continues from its current position.</li>
+      </ul>
+      <p>Antarctica always keeps at least one enabled track playing.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="tuning">Tuning</h2>
+      <figure class="shot" data-file="images/tuning.png" data-shot="The Tuning panel with System set to Auto, and the 'Playing … on …' line.">
+        <img src="images/tuning.png" width="300" alt="The Tuning panel" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <table>
+        <tr><th>Control</th><th>Function</th></tr>
+        <tr>
+        	<td style="vertical-align: top;">System</td>
+	        <td style="vertical-align: top;">
+	        Choose one from the pop-up menu.
+		        <ul>	
+        			<li><strong>Auto</strong>: the conductor selects a scale or ratio set at each new mood. Dissonant moods select just intonation and dissonant sets more frequently. You can still set the root note.</li>
+			        <li><strong>12-TET</strong>: <a href="https://en.wikipedia.org/wiki/Equal_temperament">equal temperament</a> with the Scale you select.</li>
+			        <li><strong>Just</strong>: <a href="https://en.wikipedia.org/wiki/Just_intonation">just intonation</a> with the Ratio Set you select.</li>
+        		</ul>
+        	</td>
+        </tr>
+        <tr><td>Scale</td><td>For <b>12-TET</b>:
+        <ul>
+        <li>Major Pentatonic</li>
+        <li>Major</li>
+        <li>Mixolydian</li>
+        <li>Dorian</li>
+        <li>Minor</li>
+        <li>Minor Pentatonic</li>
+        <li>Lydian</li>
+        <li>Phrygian</li>
+        <li>Hirajoshi</li>
+        <li>Whole Tone</li>
+        <li>Chromatic</li>
+        </ul>
+        Not available when System is <b>Just</b>.</td></tr>
+        <tr><td>Ratio Set</td><td>For <b>Just</b>:
+        <ul>
+        <li>5-Limit Major</li>
+        <li>Septimal Slendro</li>
+        <li>7-Limit Minor</li>
+        <li>Harmonics 8–16</li>
+        <li>11-Limit</li>
+        <li>Subharmonics 16–8</li>
+        <li>13-Limit</li>
+        </ul>
+        Not available when System is <b>12-TET</b>.</td></tr>
+        <tr><td>Root</td><td>The root note, from C1 to C5. The default is C3.</td></tr>
+      </table>
+      <p>The text at the bottom indicates the active tuning and root note. With System set to <b>Auto</b>, this line shows the conductor’s current selections.</p>
+      <p>The sequence of the lists above goes approximately from consonant to dissonant.</p>
+      <p>The controls not applicable to the current tuning mode are hidden. (eg: Ratio Set is hidden when mode is 12-TET.)</p>
+      <p>In a DAW, a MIDI note sets the root. See <a href="#daw">Use in a DAW</a>.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="clock">Clock</h2>
+      <table>
+        <tr><th>Control</th><th>Function</th></tr>
+        <tr><td>Tempo</td><td>20 to 300 BPM. The step divisions of all the tracks use this tempo. When Antarctica follows a host tempo, this control has no effect.</td></tr>
+        <tr><td>Sync to host</td><td>On: use the tempo of the DAW. The standalone app has no host, so it always uses Tempo.</td></tr>
+        <tr><td>Host Transport</td><td>How Antarctica follows the play and stop of the DAW. See <a href="#daw">Use in a DAW</a>. Available only when Sync to host is on.</td></tr>
+      </table>
+      <p>The line at the bottom shows the clock currently playing: the internal clock or the host with its tempo and beat.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="fm-patches">FM Patches</h2>
+      <figure class="shot" data-file="images/fm-patches.png" data-shot="The FM Patches panel after a DX7 bank import (bank name and patch count visible).">
+        <img src="images/fm-patches.png" width="250" alt="The FM Patches panel" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>This panel controls parameters for FM tracks.</p>
+      <table>
+        <tr><th>Control</th><th>Function</th></tr>
+        <tr><td>Source</td><td><strong>Generated</strong> (the default): each track makes a new patch when it needs one, for the mood at that time. See <a href="#generated-patches">Generated patches</a>.<br/>
+        <strong>Imported</strong>: the tracks use patches from the DX7 bank that you import.<br/>
+        <strong>Both</strong>: the tracks use the two types.</td></tr>
+        <tr><td>Bypass Filter</td><td>When this checkbox is enabled, FM tracks do not use the track filter. The FM envelopes shape the brightness of the sound, as on a DX7. When this is on, the Filter &amp; LFO section of an FM track is disabled.</td></tr>
+        <tr><td>Import DX7 Bank…</td><td>Select a DX7 32-voice bank file (<code>.syx</code>, 4104 bytes). The panel shows the bank name and the number of patches. Click <strong>×</strong> to remove the bank.</td></tr>
+      </table>
+      <p>If you change the <b>Source</b> setting, each FM track changes to a patch of the new type at its next decision point. The current patch continues to play until then.</p>
+      <p>The imported bank is saved in presets and in your DAW project.</p>
+      <div class="note"><strong>DX7 compatibility</strong>Antarctica uses the algorithms, operator levels, frequency ratios, fixed frequencies, detune, feedback, and envelopes of each patch. It does not use keyboard scaling, velocity, the patch LFO, pitch envelope or oscillator key sync. Thus an imported patch may sound different from the original.</div>
+
+      <h3 id="generated-patches">Generated patches</h3>
+      <p>Antarctica does not have a built-in patch bank, nor does it make patches when it starts. An FM track makes a new patch when it needs one:</p>
+      <ul>
+        <li>When the track changes its sound at a decision point.</li>
+        <li>At the next decision after you change <b>Source</b> or import a bank, if the currently playing patch is not of the new type.</li>
+      </ul>
+      <p>If you set the Generator of a track to FM, the track plays its last FM patch again, if that patch is compatible with the Source type. If not, the track makes a new patch.</p>
+      <p>The conductor mood at the time of patch generation affects the patch sound:</p>
+      <ul>
+        <li><strong>Melodic</strong> moods give simple algorithms and whole-number frequency ratios. The sound is harmonic.</li>
+        <li><strong>Dissonant</strong> moods give deeper algorithms, inharmonic ratios, more feedback, and sometimes fixed frequencies. The sound is inharmonic and metallic.</li>
+        <li>A track that drones or swells gets slow attacks. A track that plays a sequence gets fast attacks.</li>
+        <li>A track that plays a sequence may get a bell or mallet patch: Bell, Tubular Bell, Glockenspiel, Vibraphone, or Marimba. Melodic moods give more mallets. Dissonant moods give more bells. The strike is bright, then the sound becomes pure as it rings out. The detail panel shows the name of the patch.</li>
+      </ul>
+      <p>A bell or mallet patch rings for its full length when Envelope is Pluck. Gate and Long stop the ring at the end of the note, as a damper does. The next note stops the ring of the previous note. If the track drones or swells, the patch holds its sound and does not ring out.</p>
+      <p>Thus a patch fits the mood when it starts. If the mood changes later, the patch does not change until the track makes a new patch.</p>
+      <p>Antarctica does not save generated patches. The seed controls them, so the same seed and the same settings give the same patches again. To keep the currently playing patch, set the track Generator to Manual.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="preset-output">Preset &amp; Output</h2>
+      <figure class="shot" data-file="images/preset-output.png" data-shot="The Preset &amp; Output panel, with the preset menu open (Factory and User sections).">
+        <img src="images/preset-output.png" width="300" alt="The Preset and Output panel" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <table>
+        <tr><th>Control</th><th>Function</th></tr>
+        <tr><td>Preset menu</td><td>Shows the name of the current preset. Open it to load a factory or user preset, to save (<strong>Save As…</strong>), or to delete the current user preset. See <a href="#presets">Presets</a>.</td></tr>
+        <tr><td>Share</td><td>Shares the current settings as an <code>.aupreset</code> file.</td></tr>
+        <tr><td>Master Gain</td><td>Master output level.</td></tr>
+        <tr><td>Quiet Noise</td><td>Noise can be loud and bright. When this is on, a track using the Noise generator applies a 2 kHz low-pass filter and reduces the overall gain. The LFO continues to move the cutoff. If you set the filter to Manual, your values are used.</td></tr>
+        <tr><td>Dynamic EQ</td><td>Some sounds have a strong, narrow peak between about 1 kHz and 4.5 kHz, for example a resonant filter or a loud FM partial. The ear is very sensitive in this range, so these peaks can sound piercing. When this is on (the default), the output reduces a peak by up to 18 dB, only while it is louder than the frequencies next to it. A peak that is also a large part of the full sound gets more reduction. Flat, bright, dark or quiet sounds do not change. This setting is not saved in presets. It does apply to audio export.</td></tr>
+        <tr><td>New Seed</td><td>Selects a new random seed. The tracks make new choices and crossfade to them. Your Manual parameter settings do not change.</td></tr>
+        <tr><td>Seed</td><td>The current seed, as a 16-digit hexadecimal number. Type a seed and push <kbd>Return</kbd> to <strong>reset all settings to their defaults</strong> and start again from that seed.</td></tr>
+      </table>
+      <div class="note"><strong>Caution</strong>Entering an explicit new seed value resets all the track settings. To keep your settings and only get new track decisions, use <b>New Seed</b>.</div>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="effects">Effects</h2>
+      <figure class="shot" data-file="images/effects.png" data-shot="The Reverb and Delay panels.">
+        <img src="images/effects.png" alt="The Reverb and Delay panels" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>Each track sends to the two effects with its <strong>Rev</strong> and <strong>Dly</strong> controls. The <strong>Return</strong> control of each effect sets how much of the effect you hear in the output.</p>
+
+      <h3 id="reverb">Reverb</h3>
+      <p>A very large, diffuse reverb. It can make spaces that are larger than real rooms, and decays of more than a minute.</p>
+      <table>
+        <tr><th>Control</th><th>Function</th></tr>
+        <tr><td>Freeze</td><td>Holds the reverb tail with no loss, and stops new input. Use it to make a pad from the current sound.</td></tr>
+        <tr><td>Return</td><td>The reverb level in the output.</td></tr>
+        <tr><td>Size</td><td>The size of the space.</td></tr>
+        <tr><td>Decay</td><td>The decay time, from 0.5 to 100 seconds.</td></tr>
+        <tr><td>Damping</td><td>How fast the high frequencies decay. More damping gives a darker tail.</td></tr>
+        <tr><td>Modulation</td><td>Slow movement in the tail. It makes the tail less metallic, and it adds a small chorus.</td></tr>
+        <tr><td>Pre-delay</td><td>The time before the reverb starts, from 0 to 500 ms.</td></tr>
+        <tr><td>Low Cut</td><td>Removes low frequencies from the reverb, from 20 Hz to 1 kHz. This helps to prevent drones from becoming muddy.</td></tr>
+        <tr><td>Motion</td><td>How much the conductor can move the reverb. Sparse moods make the decay longer (up to twice as long). Chaos adds modulation. At 0, the conductor does not affect the reverb.</td></tr>
+        <tr><td>Shimmer</td><td>Sends part of the reverb tail through pitch shifters and back into the reverb. Each pass moves the sound up by the interval, so the tail climbs in pitch as it decays. More shimmer makes the tail climb faster, and decay sooner. At 0 (the default), the reverb has no shimmer. Freeze stops the shimmer.</td></tr>
+        <tr><td>Interval</td><td>The pitch change of each pass: Octave, Fifth, Oct + 5th (an octave and a fifth), or Up + Down (half of the shifters go an octave up and half an octave down, for a thicker sound with less climb).</td></tr>
+      </table>
+      <p>The “Adjusted decay” value shows the decay after the conductor changes it.</p>
+
+      <h3 id="delay">Delay</h3>
+      <p>A delay with a frequency shifter in its feedback path. With a shift, each repeat moves up or down in frequency, so the repeats spiral.</p>
+      <table>
+        <tr><th>Control</th><th>Function</th></tr>
+        <tr><td>Mode</td><td><strong>Tape</strong>: warm repeats with wow, flutter and saturation.<br/>
+        	<strong>BBD</strong>: a bucket-brigade delay, with darker repeats and clock noise.</td></tr>
+        <tr><td>Return</td><td>The delay level in the output.</td></tr>
+        <tr><td>Time</td><td>The delay time, from 5 ms to 2 seconds. Disabled when a tempo sync value is chosen.</td></tr>
+        <tr><td>Sync</td><td>Free, or a note value from 1/16 to 1/1 (with triplet “T” and dotted “D” values). The note value uses the tempo.</td></tr>
+        <tr><td>Feedback</td><td>How much of each repeat goes back into the delay. Above 1.0, the repeats become louder. Use this with care.</td></tr>
+        <tr><td>Shift</td><td>The frequency shift of each repeat, from −200 to +200 Hz. Small values (a few Hz) give slow phasing. Large values give metallic spirals.</td></tr>
+        <tr><td>Age</td><td><b>Tape</b>: more wow and flutter.<br/><b>BBD</b>: more clock noise and darker repeats.</td></tr>
+        <tr><td>Tone</td><td>The brightness of the repeats.</td></tr>
+        <tr><td>→ Reverb</td><td>Sends the delay output into the reverb.</td></tr>
+        <tr><td>Motion</td><td>How much the conductor can move the delay. Chaos makes the shift wander (up to ±40 Hz), adds age, and makes the time drift (up to ±6%). At 0, the conductor does not change the delay.</td></tr>
+      </table>
+		 <p>The text at the bottom shows the delay time and frequency shift values, after the conductor’s changes.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="tracks">Tracks</h2>
+      <p>Antarctica has eight tracks. Each track outputs one sound at a time. A track can play a drone, a sequence, or slow swells.</p>
+
+      <h3 id="decisions">Track Decision Engine</h3>
+      <p>Each track has a decision countdown timer. When the timer ends, the track makes a <strong>decision</strong>, then it starts another timer for a random value from 15 to 120 seconds. Conductor’s Chaos setting makes the times shorter. <a href="#hold">Hold</a> stops all the timers.</p>
+      <p>At each decision point, the track makes three choices:</p>
+      <ol>
+        <li><strong>Play or rest.</strong> The track decides whether to play. Busy moods make more tracks play. A track that stops fades out slowly. A track that starts fades in. Chaos makes the fades shorter.</li>
+        <li><strong>Sound.</strong> The track decides whether to change its sound. Chaos makes a change more probable.</li>
+        <li><strong>What to change.</strong> When the track decides to change the sound, it selects new values for some or all of the parameters that are set to Auto. Chaos makes it change more of them. It does not change a parameter that is in Manual. At a change, the track can also make a new sequencer pattern, LFO shape or envelope time.</li>
+      </ol>
+      <p>Changing generator, patch or play mode starts a crossfade to the new setting. A change of a continuous value, for example filter cutoff frequency, glides to the new value.</p>
+      <p>When you edit a track, it starts to play at once, so you can hear the edit.</p>
+      <figure class="shot" data-file="images/decision-ring.png" data-shot="A close-up of one strip's header: the decision ring (partly empty) and the step light.">
+        <img src="images/decision-ring.png" alt="The decision ring" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+
+      <h3 id="strips">Track strips</h3>
+      <figure class="shot" data-file="images/track-strip.png" data-shot="One track strip, close up, while it plays a sequence, with 2 or 3 parameters in Manual (amber lock count visible).">
+        <img src="images/track-strip.png" alt="One track strip" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>Each track has a strip. Click the top of a strip to select the track and show it in the detail panel. The selected strip has a colored border.</p>
+      <p>Click the top of the selected strip again to make a decision for the track now. The track selects new values for all of its parameters in Auto, and an FM track gets a new patch. The parameters in Manual do not change. The sound crossfades to the new choices, the track plays, and the decision ring starts again with a new time. This also works while Hold is on, but the decision ring does not move until you release Hold.</p>
+      <table>
+        <tr><th>Item</th><th>Function</th></tr>
+        <tr><td>Color dot</td><td>The generator color of the track.</td></tr>
+        <tr><td>Decision ring</td><td>A small ring that counts down to the next decision. Hover the pointer on it to see the time in seconds. When <a href="#hold">Hold</a> is on, the ring stops and becomes amber.</td></tr>
+        <tr><td>Step light</td><td>Blinks when the track plays a note.</td></tr>
+        <tr><td>Status</td><td><strong>Playing</strong>, <strong>Fading in</strong>, <strong>Fading out</strong>, <strong>Resting</strong>, or <strong>Off</strong> (above the Tracks count). A resting strip is dim.</td></tr>
+        <tr><td>Lock count</td><td>The number of parameters in Manual.</td></tr>
+        <tr><td>Summary</td><td>The generator, its type, and the play mode. For a sequence, the current step and the length (for example “Sequence 3/11”).</td></tr>
+        <tr><td>Meter</td><td>The output level of the track.</td></tr>
+        <tr><td>Level, Pan</td><td>The track level and stereo position.</td></tr>
+        <tr><td>Rev, Dly</td><td>The sends to the reverb and the delay.</td></tr>
+        <tr><td>M</td><td>Mute. Mute has priority over Solo.</td></tr>
+        <tr><td>S</td><td>Solo. When one or more tracks are soloed, you hear only the soloed tracks. <kbd>Option</kbd>-click: solo only this track. <kbd>Command</kbd>-click: remove the solo from all tracks.</td></tr>
+      </table>
+      <h4>Change all tracks at the same time</h4>
+      <ul>
+        <li><kbd>Shift</kbd>-drag a Level, Pan, Rev or Dly slider: all tracks go to the same value.</li>
+        <li><kbd>Option</kbd>-<kbd>Shift</kbd>-drag: all tracks move by the same amount from their current values.</li>
+      </ul>
+
+      <h3 id="detail">Detail panel</h3>
+      <figure class="shot" data-file="images/track-detail.png" data-shot="The detail panel of one track, with some parameters in Manual (amber names) and some in Auto.">
+        <img src="images/track-detail.png" alt="The track detail panel" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>The detail panel shows the generative parameters of the selected track, in three sections: <strong>Source</strong>, <strong>Filter &amp; LFO</strong> and <strong>Sequence</strong>.</p>
+      <ul>
+        <li>A parameter in <strong>Auto</strong> has a gray name and a thin bar or a text value. It shows what the track plays now.</li>
+        <li>Click the name or the bar to change the parameter to <strong>Manual</strong>. The name becomes amber, and a slider or a menu shows. Edit the value.</li>
+        <li>Click the amber name to change the parameter back to Auto.</li>
+      </ul>
+      <p>At the top of the panel:</p>
+      <table>
+        <tr><th>Control</th><th>Function</th></tr>
+        <tr><td>Awake</td><td>The track never rests. The conductor cannot fade it out.</td></tr>
+        <tr><td>Manual</td><td>Changes all the parameters of the track to Manual. The track keeps its current sound.</td></tr>
+        <tr><td>Auto</td><td>Changes all the parameters of the track to Auto.</td></tr>
+      </table>
+      <p>Some parameters have no effect in some modes. These show dim. For example, the Sequence section is dim for a drone.</p>
+
+      <h3 id="source">Source</h3>
+      <p><strong>Generator</strong> selects the sound engine: Noise, Analog, Wavetable or FM. The four Timbre parameters (A–D) have different functions for each generator. The detail panel shows the correct names for the generator that plays now.</p>
+
+      <h4 id="mood-timbre">How the mood shapes the sound</h4>
+      <p>At a decision, a track can select new Timbre values. The <strong>Dissonant ↔ Melodic</strong> axis at that time weights the choice. Each slot has the same rule for all generators:</p>
+      <table>
+        <tr><th>Timbre</th><th>Melodic</th><th>Dissonant</th></tr>
+        <tr><td>A</td><td colspan="2">The mood has no effect. The value is random.</td></tr>
+        <tr><td>B</td><td>Usually in the lower half: less crackle, consonant ratios, harmonic banks.</td><td>Usually in the upper half: more crackle, inharmonic ratios and banks.</td></tr>
+        <tr><td>C</td><td>Low values only.</td><td>The values can be high: more FM, scan and feedback.</td></tr>
+        <tr><td>D</td><td>Usually 0.</td><td>Used more frequently, with larger values: more ring modulation and warp, faster FM envelopes.</td></tr>
+      </table>
+      <p>A dissonant mood also selects the Noise generator more frequently. An FM track also gets a new patch for the mood. See <a href="#generated-patches">Generated patches</a>.</p>
+      <p>The values fit the mood at the time of the decision. They do not follow the mood between decisions. At each decision, a track changes only some of its parameters, and more of them when the mood is chaotic. Thus a track can keep a timbre from an earlier mood for some decisions.</p>
+
+      <h4>Noise</h4>
+      <table>
+        <tr><th>Timbre</th><th>Function</th></tr>
+        <tr><td>A: Color</td><td>White (0), pink (0.5), brown (1).</td></tr>
+        <tr><td>B: Crackle</td><td>From continuous noise (0) to only sparse clicks and pops (1).</td></tr>
+        <tr><td>C, D</td><td>Not used.</td></tr>
+      </table>
+      <p>Noise has a pitch. The filter follows the note, so the noise can play a melody. See also Quiet Noise in <a href="#preset-output">Preset &amp; Output</a>.</p>
+
+      <h4>Analog</h4>
+      <p>Two oscillators, with FM from oscillator 2 to oscillator 1, and ring modulation.</p>
+      <table>
+        <tr><th>Timbre</th><th>Function</th></tr>
+        <tr><td>A: Shape</td><td>The wave of oscillator 1: triangle → saw → pulse. In Sequence mode, the bottom of the range is the <strong>Bleep</strong>: a pure sine that becomes a triangle. The summary shows “Analog (Bleep)”.</td></tr>
+        <tr><td>B: Osc 2 Ratio</td><td>The frequency of oscillator 2. The lower half gives consonant ratios. The upper half gives inharmonic ratios.</td></tr>
+        <tr><td>C: FM</td><td>How much oscillator 2 modulates the frequency of oscillator 1.</td></tr>
+        <tr><td>D: Ring Mod</td><td>The level of ring modulation.</td></tr>
+      </table>
+
+      <h4>Wavetable</h4>
+      <p>Each bank has 16 frames that morph from one spectrum to another.</p>
+      <table>
+        <tr><th>Timbre</th><th>Function</th></tr>
+        <tr><td>A: Position</td><td>The frame in the bank.</td></tr>
+        <tr><td>B: Table</td><td>The bank. The lower half has harmonic banks: Classic, Formant, Organ, Pulse Sweep. The upper half has inharmonic banks: Stretched, Compressed, Bells, Clusters.</td></tr>
+        <tr><td>C: Scan</td><td>How far the position moves back and forth by itself.</td></tr>
+        <tr><td>D: Warp</td><td>Bends the wave for a brighter, harder sound.</td></tr>
+      </table>
+
+      <h4>FM</h4>
+      <p>A six-operator FM voice, as on a DX7. The patch comes from the <a href="#fm-patches">FM Patches</a> panel. When the track selects a new generator, it gets a new patch. To keep a patch, set Generator to Manual.</p>
+      <table>
+        <tr><th>Timbre</th><th>Function</th></tr>
+        <tr><td>A: Mod Depth</td><td>The level of the modulators. More depth gives a brighter sound.</td></tr>
+        <tr><td>B: Inharmonic</td><td>In the upper half, the operator ratios move away from whole numbers. This gives bell and metal sounds.</td></tr>
+        <tr><td>C: Feedback</td><td>More operator feedback. This makes the sound rougher.</td></tr>
+        <tr><td>D: EG Speed</td><td>Makes the operator envelopes faster, up to eight times.</td></tr>
+      </table>
+
+      <h3 id="filter">Filter &amp; LFO</h3>
+      <p>Each track has a filter after its generator, and an LFO that moves the cutoff. Each LFO is free-running. The LFOs of the tracks do not synchronize with each other.</p>
+      <table>
+        <tr><th>Parameter</th><th>Function</th></tr>
+        <tr><td>Filter</td><td>Low-pass or High-pass.</td></tr>
+        <tr><td>Cutoff</td><td>The cutoff frequency, from 20 Hz to 16 kHz.</td></tr>
+        <tr><td>Resonance</td><td>The peak at the cutoff frequency.</td></tr>
+        <tr><td>LFO Rate</td><td>From 0.01 Hz (100 seconds for one cycle) to 12 Hz.</td></tr>
+        <tr><td>LFO Depth</td><td>How far the LFO moves the cutoff.</td></tr>
+      </table>
+      <p>At each change, the track also selects an LFO shape (sine, triangle, sample and hold, or smooth random) and how much each note opens the filter. You cannot see these choices.</p>
+
+      <h3 id="sequence">Sequence</h3>
+      <table>
+        <tr><th>Parameter</th><th>Function</th></tr>
+        <tr><td>Mode</td><td><strong>Drone</strong>: one long note with 2–3 slightly detuned voices. It moves to a new note only at a change. <strong>Sequence</strong>: a step sequence. <strong>Swell</strong>: slow notes at random times, one at a time, with long attack and release.</td></tr>
+        <tr><td>Sequence</td><td>The type of pattern. See the table below.</td></tr>
+        <tr><td>Envelope</td><td>The shape of each sequence note. <strong>Pluck</strong>: a fast attack, then a decay. <strong>Gate</strong>: the note holds for 1/4, 1/2, 3/4 or all of the step (a different length for each step of the pattern), then releases. <strong>Long</strong>: as Gate, with a longer release.</td></tr>
+        <tr><td>Steps</td><td>The length of the pattern, from 5 to 17 steps.</td></tr>
+        <tr><td>Division</td><td>The length of each step: 1/1, 1/2, 1/4, 1/8, 1/8T (triplet), 1/16, 1/16Q (quintuplet), 1/16T, 1/32.</td></tr>
+        <tr><td>Pitch Range</td><td>How far the notes go above the base note, from 0 to 3 octaves. At 0, all notes are on one pitch.</td></tr>
+      </table>
+      <p>Sequence, Envelope, Steps and Division have no effect in Drone and Swell. Pitch Range has no effect in Drone.</p>
+
+      <h4>Sequence types</h4>
+      <table>
+        <tr><th>Type</th><th>Function</th></tr>
+        <tr><td>Random</td><td>A new random note at each step. There is no pattern.</td></tr>
+        <tr><td>Stable</td><td>A random pattern that repeats.</td></tr>
+        <tr><td>Mutating</td><td>A random pattern that changes a little at the end of some cycles: a step changes, or the pattern gets or loses a step.</td></tr>
+        <tr><td>Up/Down</td><td>The notes go up, then down, across the pitch range.</td></tr>
+        <tr><td>Up</td><td>The notes go up across the pitch range, then start again.</td></tr>
+        <tr><td>Down</td><td>The notes go down across the pitch range, then start again.</td></tr>
+        <tr><td>On 1</td><td>Only step 1 plays. The other steps are rests. This gives a slow, regular pulse.</td></tr>
+      </table>
+      <p>Some steps in a pattern are rests. Busy moods give fewer rests. The first step always plays.</p>
+      <div class="tip"><strong>Polyrhythms</strong>Each track has its own Steps and Division. For example, a 7-step pattern at 1/16 and an 11-step pattern at 1/8T come back together only after a long time. Use different lengths on each track to hear patterns that shift against each other.</div>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="presets">Presets</h2>
+      <p>A preset keeps all the settings, the Auto or Manual state of each parameter, the seed, and the imported DX7 bank.</p>
+      <h3>Factory presets</h3>
+      <table>
+        <tr><th>Preset</th><th>Description</th></tr>
+        <tr><td>Init</td><td>A calm, melodic start, with large sends to both effects. Quiet Noise and FM Bypass Filter are on.</td></tr>
+        <tr><td>Polar Night</td><td>Slow and dark. Just intonation (Harmonics 8–16) on a low root, 60 BPM, and a very large reverb with a 40-second decay.</td></tr>
+        <tr><td>Ice Shelf Choir</td><td>Organ wavetable drones on tracks 1–4, in D Dorian (12-TET), with a large reverb.</td></tr>
+        <tr><td>Katabatic Wind</td><td>Noise on tracks 1–5, a chaotic and dissonant mood, and a BBD delay with a small shift.</td></tr>
+        <tr><td>Aurora Sequence</td><td>Busy and melodic sequences in Major Pentatonic at 100 BPM, with a dotted 1/8 delay.</td></tr>
+        <tr><td>Station Signals</td><td>FM on tracks 1–4 (tracks 1–2 in Sequence), with a 1/4 BBD delay. Like radio signals from far away.</td></tr>
+        <tr><td>Crevasse</td><td>Chaotic, busy and dissonant. FM on tracks 1–3, 13-limit just intonation, a shifting delay and a lot of motion.</td></tr>
+        <tr><td>Whiteout</td><td>The extreme: full chaos, full density, full dissonance, with Auto off. A 60-second reverb and a delay that spirals up.</td></tr>
+      </table>
+      <p>A factory preset sets its values and resets all other settings to their defaults.</p>
+      <h3>User presets</h3>
+      <ul>
+        <li><strong>Save.</strong> Open the preset menu and select <strong>Save As…</strong>. Type a name, then click Save.</li>
+        <li><strong>Load.</strong> Select the preset in the User section of the preset menu.</li>
+        <li><strong>Delete.</strong> Load the preset, then select <strong>Delete</strong> in the preset menu. You cannot delete a factory preset.</li>
+        <li><strong>Share.</strong> Click the Share button to send the current settings as an <code>.aupreset</code> file.</li>
+        <li><strong>Import.</strong> Drag an <code>.aupreset</code> file onto the Antarctica window. Antarctica adds it to your user presets and loads it.</li>
+      </ul>
+      <p>User presets are in <code>~/Library/Audio/Presets/Cluttered/Antarctica</code>. The app and the Audio Unit use the same presets.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="record">Record</h2>
+      <p>The standalone app can record what you hear to a WAV file (24-bit, stereo, at the sample rate of your audio output). The recording is in real time, and it includes all the changes that you make while it records.</p>
+      <ol>
+        <li>Click <strong>Record</strong> in the toolbar, or push <kbd>⌘R</kbd>. The recording starts immediately. If Antarctica is stopped, it also starts to play.</li>
+        <li>While Antarctica records, the Record button is red and the toolbar shows the recording time.</li>
+        <li>To stop the recording, click <strong>Record</strong> again or push <kbd>⌘R</kbd>. Antarctica continues to play. If you click <strong>Stop</strong>, the recording also stops.</li>
+      </ol>
+      <p>At the end, the recording fades out in 50 ms, so it does not stop with a click.</p>
+      <p>Antarctica saves the recordings in <code>~/Music/Antarctica Recordings</code>. Each file gets the date and time when it started, for example <code>Antarctica Output 2026-09-26 at 3.04.12 PM.wav</code>. The time uses the format of your region. The name has periods, not colons, because Finder shows a colon as a slash. macOS screenshots use the same pattern.</p>
+      <h3 id="recordings-folder">Change the recordings folder</h3>
+      <figure class="shot" data-file="images/settings.png"  data-shot="The Settings window with the Recordings Folder path and the Choose…, Show in Finder, and Use Default buttons.">
+        <img src="images/settings.png" width="500" alt="The Settings window" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <ol>
+        <li>Choose <strong>Antarctica ▸ Settings…</strong> (<kbd>⌘,</kbd>).</li>
+        <li>Click <strong>Choose…</strong>, then select a folder.</li>
+      </ol>
+      <p>Click <strong>Show in Finder</strong> to see the folder. Click <strong>Use Default</strong> to go back to <code>~/Music/Antarctica Recordings</code>. If the folder does not exist, Antarctica makes it.</p>
+      <p>To record a specified length from the start of a seed, faster than real time, use <a href="#export">Export audio</a> instead.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="sleep-timer">Sleep timer</h2>
+      <p>The standalone app can stop the playback after a time that you set. Before it stops, the sound fades out slowly.</p>
+      <ol>
+        <li>Click the <strong>Sleep Timer</strong> button (the timer icon) in the toolbar.</li>
+        <li>Type the number of minutes, then click <strong>Start</strong>. If Antarctica is stopped, it also starts to play.</li>
+        <li>While the timer runs, the toolbar shows the time that remains.</li>
+      </ol>
+      <p>The fade starts when 10% of the time remains. For example, a 60-minute timer fades out during the last 6 minutes. When the fade gets to silence, the playback stops.</p>
+      <p>To cancel the timer, click the time in the toolbar. The volume goes back to full, and Antarctica continues to play. If you click <strong>Stop</strong>, the timer also stops.</p>
+      <div class="note"><strong>Note</strong>The fade changes only the sound that you hear. It does not change a <a href="#record">recording</a>. If a recording is in progress when the timer ends, the recording also stops.</div>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="export">Export audio</h2>
+      <figure class="shot" data-file="images/export-sheet.png" data-shot="The Export Audio sheet, before you click Export (Length, Fade Out, Seed fields).">
+        <img src="images/export-sheet.png" width="400" alt="The Export Audio sheet" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+      <p>The standalone app can write the music to a WAV file (48 kHz, 24-bit, stereo). The export is much faster than real time.</p>
+      <ol>
+        <li>Choose <strong>File ▸ Export Audio…</strong> (<kbd>⌘E</kbd>), or click the Export button in the toolbar.</li>
+        <li>Set <strong>Length</strong> (1 to 600 minutes) and <strong>Fade Out</strong> (0 to 60 seconds).</li>
+        <li>Set <strong>Seed</strong>. It starts with the current seed. Click the dice to select a new one.</li>
+        <li>Click <strong>Export…</strong>, then select a file name and a folder.</li>
+        <li>Wait for the progress bar. Click <strong>Cancel</strong> to stop. A canceled export deletes its file.</li>
+        <li>Click <strong>Show in Finder</strong> to see the file.</li>
+      </ol>
+      <p>The export starts from the beginning of the seed. It uses the current settings, the Auto and Manual states and the FM bank. It does not include the changes that you made while you listened. The playback continues during the export and does not change.</p>
+      <p>After the fade, the reverb and the delay continue to ring for up to 60 seconds. The export stops when the output is silent.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="daw">Use in a DAW</h2>
+      <p>Antarctica is also an Audio Unit instrument. In your DAW, add it to an instrument track. It shows as <strong>Cluttered: Antarctica</strong>. The Audio Unit has the same window as the app, but no toolbar.</p>
+      <h3>Tempo and transport</h3>
+      <p>Turn on <strong>Sync to host</strong> in the Clock panel to use the tempo of the DAW. Then set <strong>Host Transport</strong>:</p>
+      <table>
+        <tr><th>Mode</th><th>Function</th></tr>
+        <tr><td>Free</td><td>Antarctica uses only the tempo of the host. It plays all the time, also when the host is stopped.</td></tr>
+        <tr><td>Align</td><td>When the host starts or jumps to a new position, the steps of all tracks move to the beats of the host.</td></tr>
+        <tr><td>Play/Stop</td><td>The default. As Align, and Antarctica plays only while the host plays. At each start, it restarts from the seed, so the same play gives the same music.</td></tr>
+      </table>
+      <h3>MIDI</h3>
+      <p>Antarctica does not need MIDI. When it gets a MIDI note, that note becomes the root. The root does not change back when the note stops.</p>
+      <h3>Automation</h3>
+      <p>The DAW can automate all parameters, in groups: Global, Conductor, Reverb, Delay, and Track 1–8. An automated generative parameter has an effect only when it is in Manual.</p>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="shortcuts">Shortcuts</h2>
+      <table>
+        <tr><th>Keys</th><th>Action</th></tr>
+        <tr><td><kbd>Space</kbd></td><td>Play or stop (standalone app)</td></tr>
+        <tr><td><kbd>⌘R</kbd></td><td>Start or stop a recording (standalone app)</td></tr>
+        <tr><td><kbd>⌘E</kbd></td><td>Export Audio… (standalone app)</td></tr>
+        <tr><td><kbd>⌘,</kbd></td><td>Settings (standalone app)</td></tr>
+        <tr><td><kbd>Option</kbd>-click S</td><td>Solo only this track</td></tr>
+        <tr><td><kbd>Command</kbd>-click S</td><td>Remove the solo from all tracks</td></tr>
+        <tr><td><kbd>Shift</kbd>-drag a mixer slider</td><td>Set all tracks to the same value</td></tr>
+        <tr><td><kbd>Option</kbd>-<kbd>Shift</kbd>-drag a mixer slider</td><td>Move all tracks by the same amount</td></tr>
+      </table>
+
+      <!-- ─────────────────────────────────────────── -->
+      <h2 id="tips">Tips</h2>
+      <ul>
+        <li><strong>A calm background for many hours.</strong> Turn Auto on, set Auto Speed to 0.5×, keep Chaos low, and set Tracks to 3 or 4.</li>
+        <li><strong>Keep the moment that you hear now.</strong> Click <strong>Hold</strong>. Nothing changes until you release it.</li>
+        <li><strong>Keep a sound that you like.</strong> Select the track and click <strong>Manual</strong>. The track keeps its sound, and the other tracks continue to change.</li>
+        <li><strong>Keep only the type of sound.</strong> Set only Generator to Manual. The track keeps the generator (and its FM patch or wavetable bank), and continues to change its filter and sequence.</li>
+        <li><strong>One track always present.</strong> Turn on <strong>Awake</strong> for a drone track, so the music always has a floor.</li>
+        <li><strong>Music to fall asleep to.</strong> Use the calm background settings above, then start a <a href="#sleep-timer">sleep timer</a>.</li>
+        <li><strong>Noise is too loud.</strong> Turn on <strong>Quiet Noise</strong>.</li>
+        <li><strong>A sound is piercing or harsh.</strong> Make sure that <strong>Dynamic EQ</strong> is on. If the sound continues to be harsh, decrease the Resonance or the Cutoff of the track.</li>
+        <li><strong>A pad from the current moment.</strong> Turn on reverb <strong>Freeze</strong>, then mute some tracks.</li>
+        <li><strong>A stable effect sound.</strong> Set reverb and delay <strong>Motion</strong> to 0.</li>
+        <li><strong>Different music from the same settings.</strong> Click <strong>New Seed</strong>.</li>
+      </ul>
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="index.html">Overview</a></footer>
+</body>
+</html>

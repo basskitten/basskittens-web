@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antarctica: generative drones and strange noises for macOS</title>
+  <meta name="description" content="Antarctica is an eight-track generative audio instrument for macOS. It runs as a standalone app and as an Audio Unit in your DAW.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="index.html">ANTARCTICA</a>
+    <a href="index.html" aria-current="page">Overview</a>
+    <a href="manual.html">User Manual</a>
+  </nav>
+
+  <header class="hero">
+    <h1>ANTARCTICA</h1>
+    <p class="tagline">Eight tracks of drones, pulses, and strange noises that play themselves.</p>
+    <p class="subtitle">A generative instrument for macOS where the conductor sets the mood while the eight tracks make their own decisions. Let it play for hours or take control at any time and let your imagination fly.</p>
+    <div class="actions">
+      <a class="button primary" href="https://toolsweb.apple.com/apps/antarctica">Get Antarctica</a>
+      <a class="button" href="manual.html">Read the Manual</a>
+    </div>
+  </header>
+
+  <div class="hero-shot">
+    <figure class="shot" data-file="images/main-window.png" data-shot="The full app window with the Aurora visualization on, at default size, while it plays.">
+      <img src="images/main-window.png" alt="The Antarctica window" onerror="this.parentElement.classList.add('missing')">
+    </figure>
+  </div>
+
+  <section class="band">
+    <div class="band-inner split">
+      <div>
+        <h2>The conductor sets the mood</h2>
+        <p class="lead">There are three dimensions to choose from: order to chaos, sparse to busy, and dissonant to melodic. Set them yourself or turn on Auto to give control to the conductor. The User or conductor can evolve the vibe slowly or change it dramatically.</p>
+      </div>
+      <div class="axes" aria-hidden="true">
+        <div class="axis"><div class="labels"><span>Order</span><span>Chaos</span></div><div class="bar"><span></span></div></div>
+        <div class="axis"><div class="labels"><span>Sparse</span><span>Busy</span></div><div class="bar"><span></span></div></div>
+        <div class="axis"><div class="labels"><span>Dissonant</span><span>Melodic</span></div><div class="bar"><span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-inner split reverse">
+      <div>
+        <h2>Eight tracks think for themselves</h2>
+        <p class="lead">At unpredictable intervals, each track decides whether to change. It can choose a new sound, filter, or pattern, take a rest, or jump back into the action. Sequences have independent step counts and rates to encourage polyrhythmic diversity.</p>
+      </div>
+      <figure class="shot" data-file="images/track-strips.png" data-shot="The row of eight track strips, with some tracks playing and some resting.">
+        <img src="images/track-strips.png" alt="The eight track strips" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-inner">
+      <h2>Four sound engines</h2>
+      <p class="lead">Each track employs one of four generators. Generator changes are crossfaded for smooth transitions.</p>
+      <div class="cards">
+        <div class="card" style="--accent: var(--frost)"><h3>Noise</h3><p>White, pink, and brown noise with crackle. Perfect for wind, surf, or radio static.</p></div>
+        <div class="card" style="--accent: var(--aurora)"><h3>Virtual Analog</h3><p>Two oscillators with FM and ring modulation. Pure sines, soft triangles, bright saws, and pulses.</p></div>
+        <div class="card" style="--accent: var(--cyan)"><h3>Wavetable</h3><p>Eight banks ranging from organ and formant tones to stretched partials, bells, and clusters.</p></div>
+        <div class="card" style="--accent: var(--violet)"><h3>FM</h3><p>Six operators and 32 algorithms. Generate new patches on the fly, or use imported DX7 sysex banks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-inner split">
+      <div>
+        <h2>You're in control (if you want)</h2>
+        <p class="lead">Each track parameter can be set to Auto or Manual. In Auto, the conductor's input determines the parameter. Click on a value to switch it to Manual to lock in your choice. Lock one parameter or the entire track.</p>
+      </div>
+      <figure class="shot" data-file="images/track-detail.png" data-shot="The detail panel of one track, with some parameters in Manual (amber names) and some in Auto.">
+        <img src="images/track-detail.png" alt="The track detail panel" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-inner split reverse">
+      <div>
+        <h2>Special Effects</h2>
+        <p class="lead">The conductor has the power to adjust two mood-altering send effects: reverb and delay. Reverb features include shimmer, lossless freeze, and decays of up to 100 seconds. Delay offers up tape and bucket-brigade modes, with a frequency shifter in its feedback path for extra psychedelia.</p>
+      </div>
+      <figure class="shot" data-file="images/effects.png" data-shot="The Reverb and Delay panels.">
+        <img src="images/effects.png" alt="The effects panels" onerror="this.parentElement.classList.add('missing')">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-inner">
+      <h2>Additional features</h2>
+      <div class="cards">
+        <div class="card"><h3>Tuning that's not quite right</h3><p><a href="https://en.wikipedia.org/wiki/Equal_temperament">12-TET</a> scales or <a href="https://en.wikipedia.org/wiki/Just_intonation">just intonation</a> ratio sets. Every note has a small detune and a slow drift. Some notes are wrong on purpose.</p></div>
+        <div class="card"><h3>Repeatable</h3><p>The same seed creates the same music. Share a seed or save it in a preset.</p></div>
+        <div class="card"><h3>Export audio</h3><p>Render hours of audio to WAV much faster than real time, with a fade out and the full effects tail.</p></div>
+        <div class="card"><h3>In your DAW</h3><p>An Audio Unit instrument with host tempo sync and transport. Change the root note on the fly with MIDI.</p></div>
+        <div class="card"><h3>Aurora</h3><p>A Metal visualization displaying each track's level, color, and pulses, along with the mood of the conductor.</p></div>
+        <div class="card"><h3>Presets</h3><p>Many factory presets to use as a starting point. You can also create your own and share them as files.</p></div>
+        <div class="card"><h3>Sleep Timer</h3><p>After selecting your mood music, set the timer then drift off to sleep. The music will gently fade out on its own.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="requirements">
+    <div class="band-inner">
+      <h2>Requirements</h2>
+      <table class="spec">
+        <tr><th>System</th><td>macOS 15 (Sequoia) or later</td></tr>
+        <tr><th>Computer</th><td>Apple Silicon or Intel Mac</td></tr>
+        <tr><th>Formats</th><td>Standalone app, Audio Unit v3 instrument</td></tr>
+        <tr><th>Output</th><td>Stereo. Export: WAV, 48 kHz, 24-bit</td></tr>
+        <tr><th>CPU</th><td>Less than 5% of one core, even on M1.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="manual.html">User Manual</a></footer>
+</body>
+</html>
