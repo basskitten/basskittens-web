@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracks · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li>
+          <a href="../../manual/concepts/index.html">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li>
+          <a href="../../manual/conductor/index.html">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li>
+          <a href="../../manual/fm-patches/index.html">FM Patches</a>
+        </li>
+        <li>
+          <a href="../../manual/preset-output/index.html">Preset &amp; Output</a>
+        </li>
+        <li>
+          <a href="../../manual/effects/index.html">Effects</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/tracks/index.html" aria-current="page">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li>
+          <a href="../../manual/export/index.html">Export audio</a>
+        </li>
+        <li>
+          <a href="../../manual/daw/index.html">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Tracks</h1>
+<p>Antarctica has eight tracks. Each track outputs one sound at a time. A track can play a drone, a sequence, or slow swells.</p>
+<h2>Track Decision Engine</h2>
+<figure class="shot">
+<img src="../../images/decision-ring.png" alt="The decision ring" width="163" height="52">
+</figure>
+<p>Each track has a decision countdown timer indicated by the ring next to the play dot in the above figure.
+When the timer ends, the track makes a <strong>decision</strong>, then starts another timer with a random duration
+from 15 to 120 seconds. The Conductor's <strong>Chaos</strong> setting makes the times shorter.
+<a href="../conductor/index.html#hold">Hold</a> stops all the timers.</p>
+<p>At each decision point, the track makes three choices:</p>
+<ol>
+<li><strong>Play or rest.</strong> The track decides whether to play. Busy moods make more tracks play. Tracks fade in or out as needed. <strong>Chaos</strong> makes the fades shorter.</li>
+<li><strong>Sound.</strong> The track decides whether to change its sound. <strong>Chaos</strong> makes a change more probable.</li>
+<li><strong>What to change.</strong> When the track decides to change the sound, it selects new values for some or all of the parameters that are set to <strong>Auto</strong>. Higher <strong>Chaos</strong> makes it change more of them.
+A track will never change a parameter that is set to Manual. At a change, the track can also make a new sequencer pattern, LFO shape or envelope time.</li>
+</ol>
+<p>Changing generator, patch or play mode starts a crossfade to the new setting. A change of a continuous value, for example filter cutoff frequency, glides to the new value.</p>
+<p>When you edit a track, it starts to play at once, so you can hear the edit.</p>
+<h2>Track strips</h2>
+<figure class="shot">
+<img src="../../images/track-strips.png" alt="One track strip" width="1344" height="254">
+</figure>
+<p>Each track has a strip. Click the top of a strip to select the track and show it in the detail panel. The selected strip has a colored border.</p>
+<p>Click the top of the selected strip again to make a decision for the track now.
+The track selects new values for all of its <strong>Auto</strong> parameters. FM tracks get new patches.
+<strong>Manual</strong> parameters do not change.
+The sound crossfades to the new choices, and the decision ring starts over with a new timer.
+This also works while <strong>Hold</strong> is on, but the decision timer remains paused until you release <strong>Hold</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color dot</td>
+<td>The generator color of the track.</td>
+</tr>
+<tr>
+<td>Decision ring</td>
+<td>A small ring that counts down to the next decision. Hover the pointer on it to see the time in seconds. When <a href="../conductor/index.html#hold">Hold</a> is on, the ring stops and becomes amber.</td>
+</tr>
+<tr>
+<td>Step light</td>
+<td>Blinks when the track plays a note.</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><strong>Playing</strong>, <strong>Fading in</strong>, <strong>Fading out</strong>, <strong>Resting</strong>, or <strong>Off</strong> (above the Tracks count). A resting strip is dim.</td>
+</tr>
+<tr>
+<td>Lock count</td>
+<td>The number of parameters in Manual.</td>
+</tr>
+<tr>
+<td>Summary</td>
+<td>The generator, its type, and the play mode. For a sequence, the current step and the length (for example &quot;Sequence 3/11&quot;).</td>
+</tr>
+<tr>
+<td>Meter</td>
+<td>The output level of the track.</td>
+</tr>
+<tr>
+<td>Level, Pan</td>
+<td>Knobs for the track level and stereo position. Drag up or right to turn a knob clockwise.</td>
+</tr>
+<tr>
+<td>Rev, Dly</td>
+<td>The sends to the reverb and the delay.</td>
+</tr>
+<tr>
+<td>Pre</td>
+<td>The send is pre-fader: it occurs before Level. To hear only the effect of a track, turn on Pre and set Level to 0.</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Mute. Mute has priority over Solo.</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Solo. When one or more tracks are soloed, you hear only the soloed tracks. <kbd>Option</kbd>-click: solo only this track. <kbd>Command</kbd>-click: remove the solo from all tracks.</td>
+</tr>
+</tbody>
+</table>
+<h3>Change all tracks at the same time</h3>
+<ul>
+<li><kbd>Shift</kbd>-drag a Level, Pan, Rev or Dly knob: all tracks go to the same value.</li>
+<li><kbd>Option</kbd>-<kbd>Shift</kbd>-drag: all tracks move by the same amount from their current values.</li>
+</ul>
+<h2>Detail panel</h2>
+<figure class="shot">
+<img src="../../images/track-detail.png" alt="The track detail panel" width="1347" height="251">
+</figure>
+<p>The detail panel shows the generative parameters of the selected track, in three sections: <strong>Source</strong>, <strong>Filter &amp; LFO</strong> and <strong>Sequence</strong>.</p>
+<ul>
+<li>An <strong>Auto</strong> parameter has a gray label and a bar or label showing the current value.</li>
+<li>Click the parameter name or bar to change the parameter to <strong>Manual</strong>. The name becomes amber, and a slider or a menu shows. Edit the value.</li>
+<li>Click the amber name label to change the parameter back to <strong>Auto</strong>.</li>
+</ul>
+<p>At the top of the panel:</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Awake</td>
+<td>The track never rests. The conductor cannot fade it out. It can be disabled by setting the track count in the Conductor below the track's number.</td>
+</tr>
+<tr>
+<td>Manual</td>
+<td>Changes all the parameters of the track to Manual. The track keeps its current sound.</td>
+</tr>
+<tr>
+<td>Auto</td>
+<td>Changes all the parameters of the track to Auto.</td>
+</tr>
+</tbody>
+</table>
+<p>Some parameters have no effect in some modes. Those controls will appear dimmed. For example, if Sequence Mode is Drone, the rest of the sequence parameters are disabled.</p>
+<h2>Source</h2>
+<p><strong>Generator</strong> selects the sound engine: Noise, Analog, Wavetable or FM.
+The four timbre parameters below <strong>Generator</strong> have different functions for each generator.</p>
+<h3>How the mood shapes the sound</h3>
+<p>At a decision point, a track can select new timbre values.
+The value of the <strong>Dissonant ↔ Melodic</strong> axis at that time influences the parameter changes.
+Each slot has the same rule for all generators:</p>
+<table>
+<thead>
+<tr>
+<th>Timbre</th>
+<th>Melodic</th>
+<th>Dissonant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>The mood has no effect. The value is random.</td>
+<td>The mood has no effect. The value is random.</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Usually in the lower half: less crackle, consonant ratios, harmonic banks.</td>
+<td>Usually in the upper half: more crackle, inharmonic ratios and banks.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Low values only.</td>
+<td>The values can be high: more FM, scan and feedback.</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Usually 0.</td>
+<td>Used more frequently, with larger values: more ring modulation and warp, faster FM envelopes.</td>
+</tr>
+</tbody>
+</table>
+<p>A dissonant mood also selects the Noise generator more frequently. An FM track also gets a new patch for the mood. See <a href="../fm-patches/index.html#generated-patches">Generated patches</a>.</p>
+<p>The values fit the mood at the time of the decision. They do not follow the mood between decisions. At each decision, a track changes only some of its parameters, and more of them when the mood is chaotic. Thus a track can keep a timbre from an earlier mood for some decisions.</p>
+<h3>Noise</h3>
+<table>
+<thead>
+<tr>
+<th>Timbre</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A: Color</td>
+<td>White (0), pink (0.5), brown (1).</td>
+</tr>
+<tr>
+<td>B: Crackle</td>
+<td>From continuous noise (0) to only sparse clicks and pops (1).</td>
+</tr>
+<tr>
+<td>C, D</td>
+<td>Not used.</td>
+</tr>
+</tbody>
+</table>
+<p>Noise has a pitch. The filter follows the note, so the noise can play a melody. See also Quiet Noise in <a href="../preset-output/index.html">Preset &amp; Output</a>.</p>
+<h3>Analog</h3>
+<p>Two oscillators, with FM from oscillator 2 to oscillator 1, and ring modulation.</p>
+<table>
+<thead>
+<tr>
+<th>Timbre</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A: Shape</td>
+<td>The wave of oscillator 1: triangle → saw → pulse. In Sequence mode, the bottom of the range is the <strong>Bleep</strong>: a pure sine that becomes a triangle. The summary shows &quot;Analog (Bleep)&quot;.</td>
+</tr>
+<tr>
+<td>B: Osc 2 Ratio</td>
+<td>The frequency of oscillator 2. The lower half gives consonant ratios. The upper half gives inharmonic ratios.</td>
+</tr>
+<tr>
+<td>C: FM</td>
+<td>How much oscillator 2 modulates the frequency of oscillator 1.</td>
+</tr>
+<tr>
+<td>D: Ring Mod</td>
+<td>The level of ring modulation.</td>
+</tr>
+</tbody>
+</table>
+<h3>Wavetable</h3>
+<p>Each bank has 16 frames that morph from one spectrum to another.</p>
+<table>
+<thead>
+<tr>
+<th>Timbre</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A: Position</td>
+<td>The frame in the bank.</td>
+</tr>
+<tr>
+<td>B: Table</td>
+<td>The bank. The lower half has harmonic banks: Classic, Formant, Organ, Pulse Sweep. The upper half has inharmonic banks: Stretched, Compressed, Bells, Clusters.</td>
+</tr>
+<tr>
+<td>C: Scan</td>
+<td>How far the position moves back and forth by itself.</td>
+</tr>
+<tr>
+<td>D: Warp</td>
+<td>Bends the wave for a brighter, harder sound.</td>
+</tr>
+</tbody>
+</table>
+<h3>FM</h3>
+<p>A six-operator FM voice, as on a DX7. The patch comes from the <a href="../fm-patches/index.html">FM Patches</a> panel. When the track selects a new generator, it gets a new patch. To keep a patch, set Generator to Manual.</p>
+<table>
+<thead>
+<tr>
+<th>Timbre</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A: Mod Depth</td>
+<td>The level of the modulators. More depth gives a brighter sound.</td>
+</tr>
+<tr>
+<td>B: Inharmonic</td>
+<td>In the upper half, the operator ratios move away from whole numbers. This gives bell and metal sounds.</td>
+</tr>
+<tr>
+<td>C: Feedback</td>
+<td>More operator feedback. This makes the sound rougher.</td>
+</tr>
+<tr>
+<td>D: EG Speed</td>
+<td>Makes the operator envelopes faster, up to eight times.</td>
+</tr>
+</tbody>
+</table>
+<h2>Filter &amp; LFO</h2>
+<p>Each track has a filter after its generator, and an LFO that moves the cutoff. Each LFO is free-running. The LFOs of the tracks do not synchronize with each other.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filter</td>
+<td>Low-pass or High-pass.</td>
+</tr>
+<tr>
+<td>Cutoff</td>
+<td>The cutoff frequency, from 20 Hz to 16 kHz.</td>
+</tr>
+<tr>
+<td>Resonance</td>
+<td>The peak at the cutoff frequency.</td>
+</tr>
+<tr>
+<td>LFO Rate</td>
+<td>From 0.01 Hz (100 seconds for one cycle) to 12 Hz.</td>
+</tr>
+<tr>
+<td>LFO Depth</td>
+<td>How far the LFO moves the cutoff.</td>
+</tr>
+</tbody>
+</table>
+<p>At each change, the track also selects an LFO shape (sine, triangle, sample and hold, or smooth random) and how much each note opens the filter. You cannot see these choices.</p>
+<h2>Sequence</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mode</td>
+<td><strong>Drone</strong>: one long note with 2–3 slightly detuned voices. It moves to a new note only at a change. <strong>Sequence</strong>: a step sequence. <strong>Swell</strong>: slow notes at random times, one at a time, with long attack and release.</td>
+</tr>
+<tr>
+<td>Sequence</td>
+<td>The type of pattern. See the table below.</td>
+</tr>
+<tr>
+<td>Envelope</td>
+<td>The shape of each sequence note. <strong>Pluck</strong>: a fast attack, then a decay. <strong>Gate</strong>: the note holds for 1/4, 1/2, 3/4 or all of the step (a different length for each step of the pattern), then releases. <strong>Long</strong>: as Gate, with a longer release.</td>
+</tr>
+<tr>
+<td>Steps</td>
+<td>The length of the pattern, from 5 to 17 steps.</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>The length of each step: 1/1, 1/2, 1/4, 1/8, 1/8T (triplet), 1/16, 1/16Q (quintuplet), 1/16T, 1/32.</td>
+</tr>
+<tr>
+<td>Pitch Range</td>
+<td>How far the notes go above the base note, from 0 to 3 octaves. At 0, all notes are on one pitch.</td>
+</tr>
+</tbody>
+</table>
+<p>Sequence, Envelope, Steps and Division have no effect in Drone and Swell. Pitch Range has no effect in Drone.</p>
+<h3>Sequence types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random</td>
+<td>A new random note at each step. There is no pattern.</td>
+</tr>
+<tr>
+<td>Stable</td>
+<td>A random pattern that repeats.</td>
+</tr>
+<tr>
+<td>Mutating</td>
+<td>A random pattern that changes a little at the end of some cycles: a step changes, or the pattern gets or loses a step.</td>
+</tr>
+<tr>
+<td>Up/Down</td>
+<td>The notes go up, then down, across the pitch range.</td>
+</tr>
+<tr>
+<td>Up</td>
+<td>The notes go up across the pitch range, then start again.</td>
+</tr>
+<tr>
+<td>Down</td>
+<td>The notes go down across the pitch range, then start again.</td>
+</tr>
+<tr>
+<td>On 1</td>
+<td>Only step 1 plays. The other steps are rests. This gives a slow, regular pulse.</td>
+</tr>
+</tbody>
+</table>
+<p>Some steps in a pattern are rests. Busy moods give fewer rests. The first step always plays.</p>
+<div class="tip"><strong>Polyrhythms</strong>Each track has its own Steps and Division. For example, a 7-step pattern at 1/16 and an 11-step pattern at 1/8T come back together only after a long time. Use different lengths on each track to hear patterns that shift against each other.</div>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>

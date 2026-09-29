@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conductor · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li>
+          <a href="../../manual/concepts/index.html">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/conductor/index.html" aria-current="page">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li>
+          <a href="../../manual/fm-patches/index.html">FM Patches</a>
+        </li>
+        <li>
+          <a href="../../manual/preset-output/index.html">Preset &amp; Output</a>
+        </li>
+        <li>
+          <a href="../../manual/effects/index.html">Effects</a>
+        </li>
+        <li>
+          <a href="../../manual/tracks/index.html">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li>
+          <a href="../../manual/export/index.html">Export audio</a>
+        </li>
+        <li>
+          <a href="../../manual/daw/index.html">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Conductor</h1>
+<figure class="shot">
+<img src="../../images/conductor.png" alt="The Conductor panel" width="650" height="446">
+</figure>
+<p>The conductor sets the overall mood of the composition, but doesn't make any sound on its own. It chooses values for each of its three axes, then the tracks use these values to guide their own decisions. The conductor can also adjust the effects (see <a href="../effects/index.html#reverb">Motion</a>) and, if you let it, select the tuning.</p>
+<h2>The three axes</h2>
+<p>The values of the three conductor sliders impact the system as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>Low end</th>
+<th>High end</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order ↔ Chaos</td>
+<td>Tracks change infrequently. Patterns repeat. LFOs are slow. Shape sequences (Up, Down) are more frequent.</td>
+<td>Tracks change frequently and changes are more dramatic. Sequences are random or mutate. LFOs are faster and deeper. Resonance and pitch range increase.</td>
+</tr>
+<tr>
+<td>Sparse ↔ Busy</td>
+<td>Fewer tracks play. More drones and swells. Slow step divisions. Fewer notes in each pattern.</td>
+<td>More tracks play. More sequences. Fast step divisions. More notes in each pattern. Brighter filters.</td>
+</tr>
+<tr>
+<td>Dissonant ↔ Melodic</td>
+<td>More Noise tracks. Inharmonic timbres: inharmonic oscillator ratios and wavetable banks, more ring modulation, warp, and feedback. See <a href="../tracks/index.html#how-the-mood-shapes-the-sound">How the mood shapes the sound</a>. More wrong notes and more detune. Ratio sets with high prime limits.</td>
+<td>Consonant timbres. Scale notes and simple ratios. Less detune. More notes on the root.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Melodic is never perfect.</strong>Even at the melodic end, every note has a small random detune and a slow pitch drift, and some notes are wrong on purpose. The melodies are slightly unstable.</div>
+<h2>Auto mode</h2>
+<p>Use the <strong>Auto</strong> switch at the top of the Conductor panel to decide who's in control.</p>
+<ul>
+<li><strong>Auto on.</strong> The conductor moves the axes by itself. The axes show bars, not sliders. Each axis wanders slowly. At random times (from 30 seconds to 3 minutes) the conductor selects a new target mood, and the axes glide to it over some minutes. Sometimes a target is at an extreme end of an axis. This gives slow drift and also clear changes of section.</li>
+<li><strong>Auto off.</strong> The axes are sliders. The conductor goes to your values in approximately 0.3 seconds. When you turn Auto off, the sliders start at the values that play now, so the sound does not jump.</li>
+</ul>
+<p><strong>Auto Speed</strong> (0.25× to 4×) sets how fast the conductor moves in Auto mode. At 0.5×, the moods last twice as long. This control has no effect when Auto is off.</p>
+<div class="tip"><strong>Tip</strong>In a factory preset with Auto on, the axis values are only the start of the mood. The mood does not stay there.</div>
+<h2>Hold</h2>
+<p>When you like what you hear and want to keep it going, click the <strong>Hold</strong> button at the top of the Conductor panel. The button becomes amber.</p>
+<p>While <strong>Hold</strong> is engaged:</p>
+<ul>
+<li>The tracks make no decisions. Each track keeps its sound, pattern, and active or resting state. The track's decision timer stops and becomes amber.</li>
+<li>The conductor stops changing values. Anything affected by the conductor, such as tuning, stops as well.</li>
+<li>The music continues to play. Random and Mutating sequences continue to make new notes and to mutate. Drones, LFOs, and pitch drift continue to move.</li>
+<li>You can edit the tracks, mixer, and effects as usual.</li>
+</ul>
+<p>Click <strong>Hold</strong> again to release it. The conductor and decision timers continue from where they stopped.</p>
+<div class="note"><strong>Note</strong>Hold is saved in presets and in your DAW project, and a DAW can automate it. An <a href="../export/index.html">export</a> uses the Hold setting from the start of the seed. Thus, an export with Hold on keeps the first choices of the seed for all of its length.</div>
+<h2>Tracks</h2>
+<p>The <strong>Tracks</strong> menu (1 to 8) sets how many tracks can play. For example, 4 means that tracks 1–4 play and tracks 5–8 are silent.</p>
+<ul>
+<li>Disabled tracks do not count for Solo.</li>
+<li>Disabled tracks continue to run silently. When you turn a track on again, it continues from its current position.</li>
+</ul>
+<p>Antarctica always keeps at least one enabled track playing.</p>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>

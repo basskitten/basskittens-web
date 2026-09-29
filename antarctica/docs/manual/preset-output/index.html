@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preset &amp; Output · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li>
+          <a href="../../manual/concepts/index.html">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li>
+          <a href="../../manual/conductor/index.html">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li>
+          <a href="../../manual/fm-patches/index.html">FM Patches</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/preset-output/index.html" aria-current="page">Preset &amp; Output</a>
+        </li>
+        <li>
+          <a href="../../manual/effects/index.html">Effects</a>
+        </li>
+        <li>
+          <a href="../../manual/tracks/index.html">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li>
+          <a href="../../manual/export/index.html">Export audio</a>
+        </li>
+        <li>
+          <a href="../../manual/daw/index.html">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Preset &amp; Output</h1>
+<figure class="shot">
+<img src="../../images/preset-output.png" alt="The Preset and Output panel" width="300">
+</figure>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preset menu</td>
+<td>Shows the name of the current preset. Open it to load a factory or user preset, to save (<strong>Save As…</strong>), or to delete the current user preset. See <a href="../presets/index.html">Presets</a>.</td>
+</tr>
+<tr>
+<td>Share</td>
+<td>Shares the current settings as an <code>.aupreset</code> file.</td>
+</tr>
+<tr>
+<td>Clarity</td>
+<td>A wide cut centered at 250 Hz (Q 0.3) on the master output, to remove low-mid muddiness. At 0 (the default), the output does not change. Fully clockwise, the cut is 12 dB. Clarity comes before Tape.</td>
+</tr>
+<tr>
+<td>Tape</td>
+<td>Adds tape-style saturation to the master output. As you increase it, the sound gets warmer and the loud parts are compressed, and the top end gets darker. At 0 (the default), the output does not change. Gain comes after the saturation, so it does not change the amount of saturation.</td>
+</tr>
+<tr>
+<td>Gain</td>
+<td>Master output level.</td>
+</tr>
+<tr>
+<td>Quiet Noise</td>
+<td>Noise can be loud and bright. When this is on, a track using the Noise generator applies a 2 kHz low-pass filter and reduces the overall gain. The LFO continues to move the cutoff. If you set the filter to Manual, your values are used.</td>
+</tr>
+<tr>
+<td>Dynamic EQ</td>
+<td>Some sounds have a strong, narrow peak between about 1 kHz and 4.5 kHz, for example a resonant filter or a loud FM partial. The ear is very sensitive in this range, so these peaks can sound piercing. When this is on (the default), the output reduces a peak by up to 18 dB, only while it is louder than the frequencies next to it. A peak that is also a large part of the full sound gets more reduction. Flat, bright, dark or quiet sounds do not change. This setting is not saved in presets. It does apply to audio export.</td>
+</tr>
+<tr>
+<td>New Seed</td>
+<td>Selects a new random seed. The tracks make new choices and crossfade to them. Your Manual parameter settings do not change.</td>
+</tr>
+<tr>
+<td>Seed</td>
+<td>The current seed, as a 16-digit hexadecimal number. Type a seed and push <kbd>Return</kbd> to <strong>reset all settings to their defaults</strong> and start again from that seed.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Caution</strong>Entering an explicit new seed value resets all the track settings. To keep your settings and only get new track decisions, use <strong>New Seed</strong>.</div>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>

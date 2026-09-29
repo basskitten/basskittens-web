@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Effects · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li>
+          <a href="../../manual/concepts/index.html">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li>
+          <a href="../../manual/conductor/index.html">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li>
+          <a href="../../manual/fm-patches/index.html">FM Patches</a>
+        </li>
+        <li>
+          <a href="../../manual/preset-output/index.html">Preset &amp; Output</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/effects/index.html" aria-current="page">Effects</a>
+        </li>
+        <li>
+          <a href="../../manual/tracks/index.html">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li>
+          <a href="../../manual/export/index.html">Export audio</a>
+        </li>
+        <li>
+          <a href="../../manual/daw/index.html">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Effects</h1>
+<p>Each track sends to the two effects with its <strong>Rev</strong> and <strong>Dly</strong> controls. The <strong>Return</strong> control of each effect sets how much of the effect you hear in the output.</p>
+<h2>Reverb</h2>
+<figure class="shot">
+<img src="../../images/reverb.png" alt="The Reverb panel" width="660" height="178">
+</figure>
+<p>A very large, diffuse reverb. It can make spaces that are larger than real rooms, and decays of more than a minute.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Freeze</td>
+<td>Holds the reverb tail with no loss, and stops new input. Use it to make a pad from the current sound.</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>The reverb level in the output.</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>The size of the space.</td>
+</tr>
+<tr>
+<td>Decay</td>
+<td>The decay time, from 0.5 to 100 seconds.</td>
+</tr>
+<tr>
+<td>Damping</td>
+<td>How fast the high frequencies decay. More damping gives a darker tail.</td>
+</tr>
+<tr>
+<td>Modulation</td>
+<td>Slow movement in the tail. It makes the tail less metallic, and it adds a small chorus.</td>
+</tr>
+<tr>
+<td>Pre-delay</td>
+<td>The time before the reverb starts, from 0 to 500 ms.</td>
+</tr>
+<tr>
+<td>Low Cut</td>
+<td>Removes low frequencies from the reverb, from 20 Hz to 1 kHz. This helps to prevent drones from becoming muddy.</td>
+</tr>
+<tr>
+<td>Motion</td>
+<td>How much the conductor can move the reverb. Sparse moods make the decay longer (up to twice as long). Chaos adds modulation. At 0, the conductor does not affect the reverb.</td>
+</tr>
+<tr>
+<td>Shimmer</td>
+<td>Sends part of the reverb tail through pitch shifters and back into the reverb. Each pass moves the sound up by the interval, so the tail climbs in pitch as it decays. More shimmer makes the tail climb faster, and decay sooner. At 0 (the default), the reverb has no shimmer. Freeze stops the shimmer.</td>
+</tr>
+<tr>
+<td>Interval</td>
+<td>The pitch change of each pass: Octave, Fifth, Oct + 5th (an octave and a fifth), or Up + Down (half of the shifters go an octave up and half an octave down, for a thicker sound with less climb).</td>
+</tr>
+</tbody>
+</table>
+<p>The &quot;Adjusted decay&quot; value shows the decay after the conductor changes it.</p>
+<h2>Delay</h2>
+<figure class="shot">
+<img src="../../images/delay.png" alt="The Delay panel" width="662" height="141">
+</figure>
+<p>A delay with a frequency shifter in its feedback path. With a shift, each repeat moves up or down in frequency, so the repeats spiral.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mode</td>
+<td><strong>Tape</strong>: warm repeats with wow, flutter and saturation.<br><strong>BBD</strong>: a bucket-brigade delay, with darker repeats and clock noise.</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>The delay level in the output.</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>The delay time, from 5 ms to 2 seconds. Disabled when a tempo sync value is chosen.</td>
+</tr>
+<tr>
+<td>Sync</td>
+<td>Free, or a note value from 1/16 to 1/1 (with triplet &quot;T&quot; and dotted &quot;D&quot; values). The note value uses the tempo.</td>
+</tr>
+<tr>
+<td>Feedback</td>
+<td>How much of each repeat goes back into the delay. Above 1.0, the repeats become louder. Use this with care.</td>
+</tr>
+<tr>
+<td>Shift</td>
+<td>The frequency shift of each repeat, from −200 to +200 Hz. Small values (a few Hz) give slow phasing. Large values give metallic spirals.</td>
+</tr>
+<tr>
+<td>Age</td>
+<td><strong>Tape</strong>: more wow and flutter.<br><strong>BBD</strong>: more clock noise and darker repeats.</td>
+</tr>
+<tr>
+<td>Tone</td>
+<td>The brightness of the repeats.</td>
+</tr>
+<tr>
+<td>→ Reverb</td>
+<td>Sends the delay output into the reverb.</td>
+</tr>
+<tr>
+<td>Motion</td>
+<td>How much the conductor can move the delay. Chaos makes the shift wander (up to ±40 Hz), adds age, and makes the time drift (up to ±6%). At 0, the conductor does not change the delay.</td>
+</tr>
+</tbody>
+</table>
+<p>The text at the bottom shows the delay time and frequency shift values, after the conductor's changes.</p>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>

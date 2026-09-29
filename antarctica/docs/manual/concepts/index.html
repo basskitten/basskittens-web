@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basic concepts · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/concepts/index.html" aria-current="page">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li>
+          <a href="../../manual/conductor/index.html">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li>
+          <a href="../../manual/fm-patches/index.html">FM Patches</a>
+        </li>
+        <li>
+          <a href="../../manual/preset-output/index.html">Preset &amp; Output</a>
+        </li>
+        <li>
+          <a href="../../manual/effects/index.html">Effects</a>
+        </li>
+        <li>
+          <a href="../../manual/tracks/index.html">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li>
+          <a href="../../manual/export/index.html">Export audio</a>
+        </li>
+        <li>
+          <a href="../../manual/daw/index.html">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Basic concepts</h1>
+<h2>Auto and Manual</h2>
+<p>Each track has two types of parameters:</p>
+<ul>
+<li>
+<p><strong>Mixer parameters</strong>:</p>
+<ul>
+<li>Level</li>
+<li>Pan</li>
+<li>Effects send levels</li>
+<li>Mute and Solo</li>
+</ul>
+<p>You always set these. The track does not change them.</p>
+</li>
+<li>
+<p><strong>Generative parameters</strong>:</p>
+<ul>
+<li>Generator type</li>
+<li>Timbral controls</li>
+<li>Filter + filter LFO</li>
+<li>Sequence parameters</li>
+</ul>
+<p>All parameters can be <strong>Auto</strong> or <strong>Manual</strong>.</p>
+</li>
+</ul>
+<p>In <strong>Auto</strong>, the track chooses the value. The control shows the value currently playing. In <strong>Manual</strong>, the track holds your value, and you can edit it.</p>
+<p>When you change a parameter from Auto to Manual, Antarctica first copies the current value into the control to prevent the sound from jumping. When you change the parameter back to Auto, the track continues from your value but can make a new choice at its next decision point.</p>
+<div class="note"><strong>Note</strong>The Auto/Manual state of each parameter is saved in presets and in your DAW project. It is not a parameter that a DAW can automate.</div>
+<h2>The seed</h2>
+<p>All the random choices in Antarctica come from one number—the <strong>seed</strong>. Without user input, the same seed settings always create the same music.</p>
+<p>You can use this to:</p>
+<ul>
+<li>Return to a result you like and write down the seed.</li>
+<li>Share a result with a different person, such as giving them the seed and preset.</li>
+<li>Export the same music you heard. See <a href="../export/index.html">Export audio</a>.</li>
+</ul>
+<p>The conductor, tracks, and effects use a different random stream each. Changing one track does not change the choices of the other tracks.</p>
+<h2>Signal flow</h2>
+<p>Each track goes Generator → Filter &amp; LFO → Envelope → Level → Pan. Then it goes to the main mix and to the reverb and delay sends. The delay can feed the reverb. Both effects return to the main mix, then Master Gain, then Output.</p>
+<figure class="diagram">
+<svg viewBox="0 0 1180 272" role="img" aria-labelledby="flow-title"><title id="flow-title">Signal flow: each track goes Generator, Filter and LFO, Envelope, Level, Pan. Then it goes to the main mix and to the reverb and delay sends. The delay can feed the reverb. Both effects return to the main mix, then Master Gain, then Output.</title><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs><rect class="group" x="8" y="24" width="552" height="80" rx="12"/><text text-anchor="start" class="group-label" x="20" y="16">Each track (×8)</text><g class="edges"><path d="M120 64H145"/><path d="M265 64H290"/><path d="M390 64H415"/><path d="M479 64H496"/><path d="M548 64H820"/><path d="M590 64V154H690"/><path d="M590 154V244H690"/><path d="M740 224V174"/><path d="M790 154H850V84"/><path d="M790 244H890V84"/><path d="M920 64H950"/><path d="M1066 64H1090"/></g><g class="node"><rect x="20" y="44" width="100" height="40" rx="8"/><text x="70.0" y="69">Generator</text></g><g class="node"><rect x="145" y="44" width="120" height="40" rx="8"/><text x="205.0" y="69">Filter · LFO</text></g><g class="node"><rect x="290" y="44" width="100" height="40" rx="8"/><text x="340.0" y="69">Envelope</text></g><g class="node"><rect x="415" y="44" width="64" height="40" rx="8"/><text x="447.0" y="69">Level</text></g><g class="node"><rect x="496" y="44" width="52" height="40" rx="8"/><text x="522.0" y="69">Pan</text></g><g class="node fx"><rect x="690" y="134" width="100" height="40" rx="8"/><text x="740.0" y="159">Reverb</text></g><g class="node fx"><rect x="690" y="224" width="100" height="40" rx="8"/><text x="740.0" y="249">Delay</text></g><g class="node"><rect x="820" y="44" width="100" height="40" rx="8"/><text x="870.0" y="69">Main mix</text></g><g class="node"><rect x="950" y="44" width="116" height="40" rx="8"/><text x="1008.0" y="69">Master Gain</text></g><g class="node out"><rect x="1090" y="44" width="84" height="40" rx="8"/><text x="1132.0" y="69">Output</text></g><text text-anchor="start" class="edge" x="604" y="146">Rev send</text><text text-anchor="start" class="edge" x="604" y="236">Dly send</text><text text-anchor="start" class="edge" x="748" y="203">→ Reverb</text><text text-anchor="start" class="edge" x="798" y="146">return</text><text text-anchor="start" class="edge" x="798" y="236">return</text></svg>
+</figure>
+<p>The sends occur after Level and Pan. Mute and Solo also stop the sends. Turn on <strong>Pre</strong> below a send to take it before Level. Then Level does not change that send.</p>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>

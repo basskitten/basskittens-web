@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Use in a DAW · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li>
+          <a href="../../manual/concepts/index.html">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li>
+          <a href="../../manual/conductor/index.html">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li>
+          <a href="../../manual/fm-patches/index.html">FM Patches</a>
+        </li>
+        <li>
+          <a href="../../manual/preset-output/index.html">Preset &amp; Output</a>
+        </li>
+        <li>
+          <a href="../../manual/effects/index.html">Effects</a>
+        </li>
+        <li>
+          <a href="../../manual/tracks/index.html">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li>
+          <a href="../../manual/export/index.html">Export audio</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/daw/index.html" aria-current="page">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Use in a DAW</h1>
+<p>Antarctica is also an Audio Unit instrument. In your DAW, add it to an instrument track. It shows as <strong>Cluttered: Antarctica</strong>. The Audio Unit has the same window as the app, but no toolbar.</p>
+<h2>Tempo and transport</h2>
+<p>Turn on <strong>Sync to host</strong> in the Clock panel to use the tempo of the DAW. Then set <strong>Host Transport</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free</td>
+<td>Antarctica uses only the tempo of the host. It plays all the time, also when the host is stopped.</td>
+</tr>
+<tr>
+<td>Align</td>
+<td>When the host starts or jumps to a new position, the steps of all tracks move to the beats of the host.</td>
+</tr>
+<tr>
+<td>Play/Stop</td>
+<td>The default. As Align, and Antarctica plays only while the host plays. At each start, it restarts from the seed, so the same play gives the same music.</td>
+</tr>
+</tbody>
+</table>
+<h2>MIDI</h2>
+<p>Antarctica does not need MIDI. When it gets a MIDI note, that note becomes the root. The root does not change back when the note stops.</p>
+<h2>Automation</h2>
+<p>The DAW can automate all parameters, in groups: Global, Conductor, Reverb, Delay, and Track 1–8. An automated generative parameter has an effect only when it is in Manual.</p>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>

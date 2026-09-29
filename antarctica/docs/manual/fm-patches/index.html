@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FM Patches · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li>
+          <a href="../../manual/concepts/index.html">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li>
+          <a href="../../manual/conductor/index.html">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/fm-patches/index.html" aria-current="page">FM Patches</a>
+        </li>
+        <li>
+          <a href="../../manual/preset-output/index.html">Preset &amp; Output</a>
+        </li>
+        <li>
+          <a href="../../manual/effects/index.html">Effects</a>
+        </li>
+        <li>
+          <a href="../../manual/tracks/index.html">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li>
+          <a href="../../manual/export/index.html">Export audio</a>
+        </li>
+        <li>
+          <a href="../../manual/daw/index.html">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>FM Patches</h1>
+<figure class="shot">
+<img src="../../images/fm-patches.png" alt="The FM Patches panel" width="250">
+</figure>
+<p>This panel controls parameters for FM tracks.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td><strong>Generated</strong> (the default): each track makes a new patch when it needs one, for the mood at that time. See <a href="#generated-patches">Generated patches</a>.<br><strong>Imported</strong>: the tracks use patches from the DX7 bank that you import.<br><strong>Both</strong>: the tracks use the two types.</td>
+</tr>
+<tr>
+<td>Bypass Filter</td>
+<td>When this checkbox is enabled, FM tracks do not use the track filter. The FM envelopes shape the brightness of the sound, as on a DX7. When this is on, the Filter &amp; LFO section of an FM track is disabled.</td>
+</tr>
+<tr>
+<td>Import DX7 Bank…</td>
+<td>Select a DX7 32-voice bank file (<code>.syx</code>, 4104 bytes). The panel shows the bank name and the number of patches. Click <strong>×</strong> to remove the bank.</td>
+</tr>
+</tbody>
+</table>
+<p>If you change the <strong>Source</strong> setting, each FM track changes to a patch of the new type at its next decision point. The current patch continues to play until then.</p>
+<p>The imported bank is saved in presets and in your DAW project.</p>
+<div class="note"><strong>DX7 compatibility</strong>Antarctica uses the algorithms, operator levels, frequency ratios, fixed frequencies, detune, feedback, and envelopes of each patch. It does not use keyboard scaling, velocity, the patch LFO, pitch envelope or oscillator key sync. Thus an imported patch may sound different from the original.</div>
+<h2>Generated patches</h2>
+<p>Antarctica does not have a built-in patch bank, nor does it make patches when it starts. An FM track makes a new patch when it needs one:</p>
+<ul>
+<li>When the track changes its sound at a decision point.</li>
+<li>At the next decision after you change <strong>Source</strong> or import a bank, if the currently playing patch is not of the new type.</li>
+</ul>
+<p>If you set the Generator of a track to FM, the track plays its last FM patch again, if that patch is compatible with the Source type. If not, the track makes a new patch.</p>
+<p>The conductor mood at the time of patch generation affects the patch sound:</p>
+<ul>
+<li><strong>Melodic</strong> moods give simple algorithms and whole-number frequency ratios. The sound is harmonic.</li>
+<li><strong>Dissonant</strong> moods give deeper algorithms, inharmonic ratios, more feedback, and sometimes fixed frequencies. The sound is inharmonic and metallic.</li>
+<li>A track that drones or swells gets slow attacks. A track that plays a sequence gets fast attacks.</li>
+<li>A track that plays a sequence may get a bell or mallet patch: Bell, Tubular Bell, Glockenspiel, Vibraphone, or Marimba. Melodic moods give more mallets. Dissonant moods give more bells. The strike is bright, then the sound becomes pure as it rings out. The detail panel shows the name of the patch.</li>
+</ul>
+<p>A bell or mallet patch rings for its full length when Envelope is Pluck. Gate and Long stop the ring at the end of the note, as a damper does. The next note stops the ring of the previous note. If the track drones or swells, the patch holds its sound and does not ring out.</p>
+<p>Thus a patch fits the mood when it starts. If the mood changes later, the patch does not change until the track makes a new patch.</p>
+<p>Antarctica does not save generated patches. The seed controls them, so the same seed and the same settings give the same patches again. To keep the currently playing patch, set the track Generator to Manual.</p>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>

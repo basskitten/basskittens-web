@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Export audio · Antarctica User Manual</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="wordmark" href="../../index.html">ANTARCTICA</a>
+    <a href="../../index.html">Overview</a>
+    <a href="../../manual/index.html" aria-current="page">User Manual</a>
+  </nav>
+
+  <div class="manual">
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li>
+          <a href="../../manual/introduction/index.html">Introduction</a>
+        </li>
+        <li>
+          <a href="../../manual/quick-start/index.html">Quick start</a>
+        </li>
+        <li>
+          <a href="../../manual/concepts/index.html">Basic concepts</a>
+        </li>
+        <li>
+          <a href="../../manual/window/index.html">The window</a>
+        </li>
+        <li>
+          <a href="../../manual/aurora/index.html">Aurora</a>
+        </li>
+        <li>
+          <a href="../../manual/conductor/index.html">Conductor</a>
+        </li>
+        <li>
+          <a href="../../manual/tuning/index.html">Tuning</a>
+        </li>
+        <li>
+          <a href="../../manual/clock/index.html">Clock</a>
+        </li>
+        <li>
+          <a href="../../manual/fm-patches/index.html">FM Patches</a>
+        </li>
+        <li>
+          <a href="../../manual/preset-output/index.html">Preset &amp; Output</a>
+        </li>
+        <li>
+          <a href="../../manual/effects/index.html">Effects</a>
+        </li>
+        <li>
+          <a href="../../manual/tracks/index.html">Tracks</a>
+        </li>
+        <li>
+          <a href="../../manual/presets/index.html">Presets</a>
+        </li>
+        <li>
+          <a href="../../manual/record/index.html">Record</a>
+        </li>
+        <li>
+          <a href="../../manual/sleep-timer/index.html">Sleep timer</a>
+        </li>
+        <li class="current">
+          <a href="../../manual/export/index.html" aria-current="page">Export audio</a>
+        </li>
+        <li>
+          <a href="../../manual/daw/index.html">Use in a DAW</a>
+        </li>
+        <li>
+          <a href="../../manual/shortcuts/index.html">Shortcuts</a>
+        </li>
+        <li>
+          <a href="../../manual/tips/index.html">Tips</a>
+        </li>
+      </ol>
+    </aside>
+
+    <main class="content">
+      <h1>Export audio</h1>
+<figure class="shot">
+<img src="../../images/export-sheet.png" alt="The Export Audio sheet" width="461" height="275">
+</figure>
+<p>The standalone app can write the music to a WAV file (48 kHz, 24-bit, stereo). The export is much faster than real time.</p>
+<ol>
+<li>Choose <strong>File ▸ Export Audio…</strong> (<kbd>⌘E</kbd>), or click the Export button in the toolbar.</li>
+<li>Set <strong>Length</strong> (1 to 600 minutes) and <strong>Fade Out</strong> (0 to 60 seconds).</li>
+<li>Set <strong>Seed</strong>. It starts with the current seed. Click the dice to select a new one.</li>
+<li>Click <strong>Export…</strong>, then select a file name and a folder.</li>
+<li>Wait for the progress bar. Click <strong>Cancel</strong> to stop. A canceled export deletes its file.</li>
+<li>Click <strong>Show in Finder</strong> to see the file.</li>
+</ol>
+<p>The export starts from the beginning of the seed. It uses the current settings, the Auto and Manual states and the FM bank. It does not include the changes that you made while you listened. The playback continues during the export and does not change.</p>
+<p>After the fade, the reverb and the delay continue to ring for up to 60 seconds. The export stops when the output is silent.</p>
+
+    </main>
+  </div>
+
+  <footer>Antarctica · Designed by <a href="https://basskittens.bandcamp.com/">Bass Kittens</a> · Implemented by <a href="https://claude.ai/">Claude</a> · <a href="../../index.html">Overview</a></footer>
+</body>
+</html>
