@@ -93,7 +93,7 @@ from 15 to 120 seconds. The Conductor's <strong>Chaos</strong> setting makes the
 <li><strong>Play or rest.</strong> The track decides whether to play. Busy moods make more tracks play. Tracks fade in or out as needed. <strong>Chaos</strong> makes the fades shorter.</li>
 <li><strong>Sound.</strong> The track decides whether to change its sound. <strong>Chaos</strong> makes a change more probable.</li>
 <li><strong>What to change.</strong> When the track decides to change the sound, it selects new values for some or all of the parameters that are set to <strong>Auto</strong>. Higher <strong>Chaos</strong> makes it change more of them.
-A track will never change a parameter that is set to Manual. At a change, the track can also make a new sequencer pattern, LFO shape or envelope time.</li>
+A track will never change a parameter that is set to Manual. At a change, the track can also make a new sequencer pattern, LFO shape or envelope time. To keep the pattern, use <a href="#lock-notes">Lock Notes</a>.</li>
 </ol>
 <p>Changing generator, patch or play mode starts a crossfade to the new setting. A change of a continuous value, for example filter cutoff frequency, glides to the new value.</p>
 <p>When you edit a track, it starts to play at once, so you can hear the edit.</p>
@@ -125,7 +125,7 @@ This also works while <strong>Hold</strong> is on, but the decision timer remain
 </tr>
 <tr>
 <td>Step light</td>
-<td>Blinks when the track plays a note.</td>
+<td>Blinks when the track plays a note. Drone tracks do not trigger the step lights.</td>
 </tr>
 <tr>
 <td>Status</td>
@@ -174,7 +174,10 @@ This also works while <strong>Hold</strong> is on, but the decision timer remain
 <figure class="shot">
 <img src="../../images/track-detail.png" alt="The track detail panel" width="1347" height="251">
 </figure>
-<p>The detail panel shows the generative parameters of the selected track, in three sections: <strong>Source</strong>, <strong>Filter &amp; LFO</strong> and <strong>Sequence</strong>.</p>
+<p>The detail panel shows the generative parameters of the selected track,
+in three sections: <strong>Source</strong>, <strong>Filter &amp; LFO</strong> and <strong>Sequence</strong>.
+Click the magnifying glass icon next to the section title
+to view the section’s parameters in a larger format in the center of the window.</p>
 <ul>
 <li>An <strong>Auto</strong> parameter has a gray label and a bar or label showing the current value.</li>
 <li>Click the parameter name or bar to change the parameter to <strong>Manual</strong>. The name becomes amber, and a slider or a menu shows. Edit the value.</li>
@@ -461,6 +464,14 @@ Each slot has the same rule for all generators:</p>
 </tbody>
 </table>
 <p>Some steps in a pattern are rests. Busy moods give fewer rests. The first step always plays.</p>
+<h3>Lock Notes</h3>
+<p>Select <strong>Lock Notes</strong> (at the right of the <strong>Sequence</strong> heading) to keep the notes of the track. Decisions, a click on the selected strip, and <strong>New Seed</strong> do not change these items:</p>
+<ul>
+<li>The sequencer pattern: its notes, rests, and step lengths.</li>
+<li>The octave of the sequence.</li>
+<li>The note and octave of a drone.</li>
+</ul>
+<p>The other parameters that are set to <strong>Auto</strong> continue to change. A <strong>Mutating</strong> pattern also continues to change a little at the end of some cycles. To stop all changes on all tracks, use <a href="../conductor/index.html#hold">Hold</a>.</p>
 <div class="tip"><strong>Polyrhythms</strong>Each track has its own Steps and Division. For example, a 7-step pattern at 1/16 and an 11-step pattern at 1/8T come back together only after a long time. Use different lengths on each track to hear patterns that shift against each other.</div>
 
     </main>

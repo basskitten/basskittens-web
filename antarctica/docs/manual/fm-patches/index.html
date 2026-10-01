@@ -101,30 +101,34 @@
 </tr>
 <tr>
 <td>Import DX7 Bank…</td>
-<td>Select a DX7 32-voice bank file (<code>.syx</code>, 4104 bytes). The panel shows the bank name and the number of patches. Click <strong>×</strong> to remove the bank.</td>
+<td>Select a DX7 32-voice bank file (<code>.syx</code>, 4104 bytes). The panel shows the bank name and the number of patches that the tracks can use. Click <strong>×</strong> to remove the bank.</td>
+</tr>
+<tr>
+<td>Edit</td>
+<td>Shows the patches in the imported bank. Click <strong>▶</strong> to hear a patch for a short time. Clear the checkbox of a patch to stop the tracks from using it. If a track is currently using that patch, it will continue to use that sound until the track’s next decision point. If you clear all the checkboxes, the tracks use generated patches.</td>
 </tr>
 </tbody>
 </table>
 <p>If you change the <strong>Source</strong> setting, each FM track changes to a patch of the new type at its next decision point. The current patch continues to play until then.</p>
-<p>The imported bank is saved in presets and in your DAW project.</p>
+<p>The imported bank and its checkbox settings are saved in presets and in your DAW project. When you import a new bank, all its patches are selected.</p>
 <div class="note"><strong>DX7 compatibility</strong>Antarctica uses the algorithms, operator levels, frequency ratios, fixed frequencies, detune, feedback, and envelopes of each patch. It does not use keyboard scaling, velocity, the patch LFO, pitch envelope or oscillator key sync. Thus an imported patch may sound different from the original.</div>
 <h2>Generated patches</h2>
-<p>Antarctica does not have a built-in patch bank, nor does it make patches when it starts. An FM track makes a new patch when it needs one:</p>
+<p>Antarctica generates new FM patches from scratch on the fly.</p>
 <ul>
 <li>When the track changes its sound at a decision point.</li>
 <li>At the next decision after you change <strong>Source</strong> or import a bank, if the currently playing patch is not of the new type.</li>
 </ul>
-<p>If you set the Generator of a track to FM, the track plays its last FM patch again, if that patch is compatible with the Source type. If not, the track makes a new patch.</p>
+<p>If you set the Generator of a track to FM, the track plays its last FM patch again, if that patch is compatible with the <strong>Source</strong> type. If not, the track makes a new patch.</p>
 <p>The conductor mood at the time of patch generation affects the patch sound:</p>
 <ul>
 <li><strong>Melodic</strong> moods give simple algorithms and whole-number frequency ratios. The sound is harmonic.</li>
 <li><strong>Dissonant</strong> moods give deeper algorithms, inharmonic ratios, more feedback, and sometimes fixed frequencies. The sound is inharmonic and metallic.</li>
 <li>A track that drones or swells gets slow attacks. A track that plays a sequence gets fast attacks.</li>
-<li>A track that plays a sequence may get a bell or mallet patch: Bell, Tubular Bell, Glockenspiel, Vibraphone, or Marimba. Melodic moods give more mallets. Dissonant moods give more bells. The strike is bright, then the sound becomes pure as it rings out. The detail panel shows the name of the patch.</li>
+<li>A track that plays a sequence may get a bell or mallet patch: Bell, Tubular Bell, Glockenspiel, Vibraphone, or Marimba. Melodic moods give more mallets. Dissonant moods give more bells.</li>
 </ul>
 <p>A bell or mallet patch rings for its full length when Envelope is Pluck. Gate and Long stop the ring at the end of the note, as a damper does. The next note stops the ring of the previous note. If the track drones or swells, the patch holds its sound and does not ring out.</p>
-<p>Thus a patch fits the mood when it starts. If the mood changes later, the patch does not change until the track makes a new patch.</p>
-<p>Antarctica does not save generated patches. The seed controls them, so the same seed and the same settings give the same patches again. To keep the currently playing patch, set the track Generator to Manual.</p>
+<p>A generated patch fits the mood when it starts. If the mood changes later, the patch does not change until the track makes a new patch.</p>
+<p>Antarctica does not save generated patches. The seed controls patch generation, so the same seed and the same settings create the same patches again. To keep the currently playing patch from changing, set the track Generator to Manual.</p>
 
     </main>
   </div>
